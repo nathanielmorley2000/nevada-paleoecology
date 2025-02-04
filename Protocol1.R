@@ -3,9 +3,6 @@ library("dplyr")
 library("vegan")
 library("ggplot2")
 
-# set working directory
-setwd("~/Alex Nevada Paleoecology")
-
 # overhead for creating Results subdirectory
 current_time <- Sys.time()
 formatted_time <- format(current_time, "%Y-%m-%d_%H-%M-%S")
@@ -13,7 +10,7 @@ folder_name <- paste("Results", formatted_time, sep = " ")
 dir.create(folder_name)
 
 # load data and replace NAs with 0s
-rawData <- read.csv("Relative dataset.csv")
+rawData <- read.csv("RelativeDataset.csv")
 data <- rawData %>% replace(is.na(.), 0)
 
 mann_whitney_test <- function(NMDS1, Early.Mid, data.scores) {
