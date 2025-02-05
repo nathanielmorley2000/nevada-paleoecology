@@ -5,6 +5,9 @@ library(sf)
 library(leaflet)
 library(ggplot2)
 
+# create subdirectory to store figure outputs
+dir.create("FiguresResults")
+
 ######################################################################
 ############################## FIGURE 1 ############################## 
 ######################################################################
@@ -41,20 +44,23 @@ xlim <- c(nevada_bbox["xmin"] - 0.5, nevada_bbox["xmax"] + 0.5)  # Add small pad
 ylim <- c(nevada_bbox["ymin"] - 0.5, nevada_bbox["ymax"] + 0.5)
 
 # Create the ggplot map
-ggplot() +
-  # Plot surrounding states in gray
-  geom_sf(data = surrounding_states_sf, fill = "gray20", color = "black", size = 0.4, alpha = 0.6) +
-  # Plot Nevada counties (default)
-  geom_sf(data = nevada_sf[nevada_sf$highlight == "normal", ], fill = "gray80", color = "black", size = 0.6) +
-  # Plot highlighted counties in red
-  geom_sf(data = nevada_sf[nevada_sf$highlight == "highlight", ], fill = "white", color = "black", size = 0.8) +
-  # Set zoomed-in limits
-  coord_sf(xlim = xlim, ylim = ylim, expand = FALSE) +
-  # Set theme and labels
-  theme_minimal() +
-  labs(title = "Study Region in Nevada, USA",
-       subtitle = "Highlighted Counties: Elko, Eureka, Nye, White Pine") +
-  theme(legend.position = "none")
+fig1 <- ggplot() +
+          # Plot surrounding states in gray
+          geom_sf(data = surrounding_states_sf, fill = "gray20", color = "black", size = 0.4, alpha = 0.6) +
+          # Plot Nevada counties (default)
+          geom_sf(data = nevada_sf[nevada_sf$highlight == "normal", ], fill = "gray80", color = "black", size = 0.6) +
+          # Plot highlighted counties in red
+          geom_sf(data = nevada_sf[nevada_sf$highlight == "highlight", ], fill = "white", color = "black", size = 0.8) +
+          # Set zoomed-in limits
+          coord_sf(xlim = xlim, ylim = ylim, expand = FALSE) +
+          # Set theme and labels
+          theme_minimal() +
+          labs(title = "Study Region in Nevada, USA",
+               subtitle = "Highlighted Counties: Elko, Eureka, Nye, White Pine") +
+          theme(legend.position = "none")
+
+# save to new FiguresResults folder
+ggsave("FiguresResults/Fig1.svg", plot = fig1)
 
 ######################################################################
 ######################################################################
