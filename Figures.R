@@ -82,7 +82,7 @@ fig1 <- ggplot() +
   # Customize grid lines (only every other longitude)
   theme_minimal() +
   theme(
-    panel.grid.major = element_line(color = "gray70", size = 0.5),
+    panel.grid.major = element_line(color = "gray90", size = 0.5),
     panel.grid.minor = element_blank()
   ) +
   scale_x_continuous(breaks = longitude_lines) +
