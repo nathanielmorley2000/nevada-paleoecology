@@ -10,8 +10,8 @@ folder_name <- paste("Results", formatted_time, sep = " ")
 dir.create(folder_name)
 
 # load data and replace NAs with 0s
-rawData <- read.csv("RelativeDataset.csv")
-data <- rawData %>% replace(is.na(.), 0)
+rawData <- read.csv("Data/RelativeDataset.csv")
+data <- rawData %>% replace(is.na(.), 0) # ensure NA values are replaced with 0
 
 mann_whitney_test <- function(NMDS1, Early.Mid, data.scores) {
   test <- wilcox.test(NMDS1 ~ Early.Mid, data = data.scores)  # Use exact = FALSE for larger samples
@@ -20,8 +20,16 @@ mann_whitney_test <- function(NMDS1, Early.Mid, data.scores) {
   return(c(U_stat, p_value))
 }
 
+success = 0
+
 # create function for looping NMDS and producing plots
 findNMDS <- function(r, nit, plotIndices) {
+  
+  # variables
+  r <- 0.05 # proportion of data not culled
+  nit <- 5  # number of iterations
+  plotIndices <- 5 # number of plots produced
+  
   
   # Initialize matrices to store U-statistics and p-values
   results <- matrix(NA, nrow = nit, ncol = 2)
@@ -39,7 +47,6 @@ findNMDS <- function(r, nit, plotIndices) {
     com = culled_data[,4:ncol(culled_data)]
     m_com = as.matrix(com)
     
-    tryCatch({
       # run NMDS
       nmds = metaMDS(m_com, distance = "bray")
       
@@ -54,6 +61,8 @@ findNMDS <- function(r, nit, plotIndices) {
       if (earlyMean > midMean) {
         data.scores$NMDS1 <- -data.scores$NMDS1  # Flip the NMDS1 axis
       }
+      
+      write.csv(data.scores, paste0(folder_name, "/NMDSdata", i, ".csv"))
       
       # create plot using ggplot2 if iteration is less than or equal to plotIndices
       if (i <= plotIndices) {
@@ -74,27 +83,28 @@ findNMDS <- function(r, nit, plotIndices) {
           ggtitle(paste("Plot for iteration", i)) +
           theme(plot.title = element_text(hjust = 0.5))
         
+        
+        
         # Construct the filename
         file_name = sprintf("NMDS.%d.png", i)
         file_path = file.path(folder_name, file_name)
         
         # Save the plot
         ggsave(filename = file_path, plot = p, bg = "white")
+        
+        
+        
       }
       
       results[i, ] = mann_whitney_test(NMDS1, Early.Mid, data.scores)
       i = i + 1
-    
-    return(results)
-    }, warning = function(w){
-      warning_count = warning_count + 1
-    })
-}
+  }
+  
 }
 
 # variables
-r <- 0.25 # proportion of data not culled
-nit <- 100  # number of iterations
+r <- 0.05 # proportion of data not culled
+nit <- 30  # number of iterations
 plotIndices <- 30 # number of plots produced
 
 # call function
