@@ -25,28 +25,29 @@ success = 0
 # create function for looping NMDS and producing plots
 findNMDS <- function(r, nit, plotIndices) {
   
-  # variables
-  r <- 0.05 # proportion of data not culled
-  nit <- 5  # number of iterations
-  plotIndices <- 5 # number of plots produced
-  
-  
   # Initialize matrices to store U-statistics and p-values
-  results <- matrix(NA, nrow = nit, ncol = 2)
-  colnames(results) <- c("U_stat", "p_value")
+  results <- matrix(NA, nrow = nit, ncol = 1)
+  colnames(results) <- c("Success/Fail")
   
   # Loop to perform the test nit times
-  warning_count = 0
   i = 1
   for (i in 1:nit) {
+    
     # randomly cull data
     culled_data = data %>%
       slice_sample(prop = r)
     
-    #make community matrix - extract columns with relative abundance information
-    com = culled_data[,4:ncol(culled_data)]
-    m_com = as.matrix(com)
+    # CHECK 1: Make sure there are sufficient data (n = 5) in each sample to run U-test
+    count_early = sum(culled_data$Early.Mid == "Early")
+    count_mid = sum(culled_data$Early.Mid == "Middle")
     
+    # if successful, run NMDS
+    #if (count_early > 5 && count_mid > 5) {
+      
+      # make community matrix - extract columns with relative abundance information
+      com = culled_data[,4:ncol(culled_data)]
+      m_com = as.matrix(com)
+      
       # run NMDS
       nmds = metaMDS(m_com, distance = "bray")
       
@@ -54,6 +55,15 @@ findNMDS <- function(r, nit, plotIndices) {
       data.scores = as.data.frame(scores(nmds)$sites)
       data.scores$Early.Mid = culled_data$Early.Mid
       
+      #data.scores <- read.csv("Results 2025-02-11_11-25-17/NMDSdata1.csv")
+    #}
+      
+    # CHECK 2: Make sure NMDS didn't return a 1-D or mostly 1-D solution
+    z_scores = (data.scores$NMDS1 - mean(data.scores$NMDS1)) / sd(data.scores$NMDS1)
+    outliers = abs(z_scores) > 3 # check for outliers outside 3 standard deviations
+    
+    # if solution is not 1-dimensional, conduct U-test
+    #if (sum(outliers) != 1) {
       # make sure "Early" is on the left of the plot
       group_means <- aggregate(NMDS1 ~ Early.Mid, data = data.scores, mean)
       earlyMean <- group_means$NMDS1[group_means$Early.Mid == "Early"]
@@ -65,7 +75,7 @@ findNMDS <- function(r, nit, plotIndices) {
       write.csv(data.scores, paste0(folder_name, "/NMDSdata", i, ".csv"))
       
       # create plot using ggplot2 if iteration is less than or equal to plotIndices
-      if (i <= plotIndices) {
+      #if (i <= plotIndices) {
         # Function to calculate the convex hull for each group
         find_hull = function(df) df[chull(df$NMDS1, df$NMDS2), ]
         
@@ -83,8 +93,6 @@ findNMDS <- function(r, nit, plotIndices) {
           ggtitle(paste("Plot for iteration", i)) +
           theme(plot.title = element_text(hjust = 0.5))
         
-        
-        
         # Construct the filename
         file_name = sprintf("NMDS.%d.png", i)
         file_path = file.path(folder_name, file_name)
@@ -92,24 +100,34 @@ findNMDS <- function(r, nit, plotIndices) {
         # Save the plot
         ggsave(filename = file_path, plot = p, bg = "white")
         
-        
-        
-      }
+        u_test = mann_whitney_test(NMDS1, Early.Mid, data.scores)
+    #}
+
       
-      results[i, ] = mann_whitney_test(NMDS1, Early.Mid, data.scores)
-      i = i + 1
+        if (all(count_early >= 5 && count_mid >= 5, sum(outliers) != 1, u_test[2] < 0.05)) {
+          print("success")
+          results[i,] = "success"
+          success = success + 1
+          
+        } else {
+          print("fail")
+          results[i,] = "fail"
+        }
+        
+        i = i + 1
   }
   
+return(success)
 }
-
-# variables
-r <- 0.05 # proportion of data not culled
-nit <- 30  # number of iterations
-plotIndices <- 30 # number of plots produced
-
+    
 # call function
-results <- findNMDS(r, nit, plotIndices)
-
+results <- findNMDS(r = 0.1, # proportion of data not culled
+                    nit = 80, # number of iterations
+                    plotIndices = 20) # number of plots produced
+results
+    
+write.csv(results, paste0(folder_name, "/success.csv"))    
+      
 # save individual results to the "Results" directory
 file_name <- "individual.iterations.csv"
 file_path <- file.path(folder_name, file_name)
