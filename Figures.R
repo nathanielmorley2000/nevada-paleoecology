@@ -216,7 +216,7 @@ bbox3 <- st_as_sfc(find_bbox(Box3Data))
 bbox4 <- st_as_sfc(find_bbox(Box4Data))
 
 # Map Nevada
-mapNevada <- mapview(nevada, legend = FALSE) +
+mapNevada <- mapview(nevada, color = "black", fill = FALSE, lwd = 5) +
                 mapview(bbox1, color = "black", fill = FALSE, alpha = 1, lwd = 3) +
                 mapview(bbox2, color = "black", fill = FALSE, alpha = 1, lwd = 3) +
                 mapview(bbox3, color = "black", fill = FALSE, alpha = 1, lwd = 3) +
