@@ -5,6 +5,10 @@ library(ggplot2)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
+library(rnaturalearthhires)
+library(leaflet)
+library(webshot2)
+library(dplyr)
 
 
 # create subdirectory to store figure outputs
@@ -100,61 +104,74 @@ ggsave("FiguresResults/Fig1.png", plot = fig1, bg = "white")
 
 
 
-# Get US state boundaries
-states_map <- map("state", fill = TRUE, plot = FALSE)
-states_sf <- st_as_sf(states_map)
+# ensure any overlays are properly saved
+mapviewOptions(fgb = FALSE) 
 
-# Get Nevada county boundaries
-counties_map <- map("county", fill = TRUE, plot = FALSE)
-counties_sf <- st_as_sf(counties_map)
+# download data for boxes
+Box1Data <- read.csv("Data/BoxOneData.csv")
+Box2Data <- read.csv("Data/BoxTwoData.csv")
+Box3Data <- read.csv("Data/BoxThreeData.csv")
+Box4Data <- read.csv("Data/BoxFourData.csv")
 
-# Filter for Nevada counties
-nevada_sf <- counties_sf[grepl("nevada,", counties_sf$ID), ]
 
-# Define the counties to highlight
-highlighted_counties <- c("elko", "eureka", "nye", "white pine")
+# define function for drawing each box
+smallBox <- function(mapdata_name) {
+  
+  # find data for named mapdata
+  mapdata <- get(mapdata_name)
+  
+  # Remove rows where a specific column has NA values
+  mapdata <- mapdata %>%
+    filter(!is.na(lat) & !is.na(long))
+  
+  # define function for drawing bounding box
+  find_bbox <- function(map_data) {
+    
+    # adjust coordinates to accommodate margin
+    xmin = mean(map_data$long) - 1
+    xmax = mean(map_data$long) + 1
+    ymin = mean(map_data$lat) - 0.7
+    ymax = mean(map_data$lat) + 0.7
+    
+    # create new bounding box and convert so it can be recognized by ggplot2
+    bbox_coords = matrix(c(xmin, ymin,  # lower-left
+                           xmax, ymin,  # lower-right
+                           xmax, ymax,  # upper-right
+                           xmin, ymax,  # upper-left
+                           xmin, ymin), # close the polygon
+                         ncol = 2, byrow = TRUE)
+    bbox_polygon = st_polygon(list(bbox_coords))
+    bbox_sf = st_sfc(bbox_polygon, crs = 4326)
+    expanded_bbox <- st_bbox(bbox_sf)
+    
+    return(expanded_bbox)}
+  
+  
+  # call function to find bbox and further modify it so it can be placed on map
+  bbox <- find_bbox(mapdata)
+  bbox_sfc <- st_as_sfc(bbox)
+  
+  # Convert individual sites to sf points
+  points_sf <- st_as_sf(mapdata, coords = c("long", "lat"), crs = 4326)
+  
+  # Create a leaflet map with bounding box and points
+  map <- leaflet() %>%
+    addTiles(urlTemplate = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png") %>%
+    addPolygons(data = bbox_sfc, color = "black", fill = FALSE, weight = 10, opacity = 1) %>% 
+    addCircleMarkers(data = points_sf, 
+                     color = "black", 
+                     fill = TRUE, 
+                     fillColor = "black", 
+                     radius = 20, 
+                     weight = 2, 
+                     fillOpacity = 1)
+  
+  # Save as PNG with higher resolution
+  mapshot(map, file = paste0("FiguresResults/", mapdata_name, ".png"), vwidth = 2000, vheight = 1500)
+}
 
-# Create a column to differentiate highlighted counties
-nevada_sf$highlight <- ifelse(sub(",.*", "", sub("nevada,", "", nevada_sf$ID)) %in% highlighted_counties, "highlight", "normal")
-
-# Get surrounding states
-surrounding_states <- c("california", "oregon", "idaho", "utah", "arizona", "nevada")
-surrounding_states_sf <- states_sf[states_sf$ID %in% surrounding_states, ]
-
-# Reproject to WGS84 for Leaflet
-nevada_sf <- st_transform(nevada_sf, crs = 4326)
-surrounding_states_sf <- st_transform(surrounding_states_sf, crs = 4326)
-
-# Create a Leaflet map
-leaflet() %>%
-  addProviderTiles(providers$Esri.WorldImagery) %>%  # Basemap
-  addWMSTiles(
-    "https://your-geology-wms-url",
-    layers = "terrane_layer",
-    options = WMSTileOptions(format = "image/png", transparent = TRUE)
-  ) %>%
-  # Add surrounding states with grey color
-  addPolygons(data = surrounding_states_sf,
-              fillColor = "gray80",
-              color = "black",
-              weight = 1,
-              opacity = 1,
-              fillOpacity = 0.4) %>%
-  # Add Nevada counties (default)
-  addPolygons(data = nevada_sf[nevada_sf$highlight == "normal", ],
-              fillColor = "lightblue",
-              color = "black",
-              weight = 1.5,
-              opacity = 1,
-              fillOpacity = 0.6) %>%
-  # Add highlighted counties
-  addPolygons(data = nevada_sf[nevada_sf$highlight == "highlight", ],
-              fillColor = "red",
-              color = "black",
-              weight = 2,
-              opacity = 1,
-              fillOpacity = 0.8) %>%
-  addLegend(position = "bottomright", 
-            colors = c("gray80", "lightblue", "red"), 
-            labels = c("Surrounding States", "Nevada Counties", "Highlighted Counties"), 
-            title = "Legend")
+# call function to draw boxes and plot sites in boxes
+smallBox(mapdata_name = "Box1Data")
+smallBox(mapdata_name = "Box2Data")
+smallBox(mapdata_name = "Box3Data")
+smallBox(mapdata_name = "Box4Data")
