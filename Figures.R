@@ -127,8 +127,8 @@ find_bbox <- function(map_data) {
   all_same <- all(map_data$long == map_data$long[1])
   
   if (all_same) {
-    xmin = mean(map_data$long) - 0.5
-    xmax = mean(map_data$long) + 0.5
+    xmin = mean(map_data$long) - 0.3
+    xmax = mean(map_data$long) + 0.3
     ymin = mean(map_data$lat) - 0.3
     ymax = mean(map_data$lat) + 0.3
     
@@ -142,11 +142,21 @@ find_bbox <- function(map_data) {
     width = bbox$xmax - bbox$xmin
     height = bbox$ymax - bbox$ymin
     
-    # adjust coordinates to accommodate margin
-    xmin = bbox$xmin - width * margin
-    xmax = bbox$xmax + width * margin
-    ymin = bbox$ymin - height * margin
-    ymax = bbox$ymax + height * margin
+    if (width > height){
+      # adjust coordinates to accommodate margin
+      xmin = bbox$xmin - width * margin
+      xmax = bbox$xmax + width * margin
+      ymin = mean(map_data$lat) - width/2 - width*margin
+      ymax = mean(map_data$lat) + width/2 + width*margin
+    
+      } else if (height > width){
+      # adjust coordinates to accommodate margin
+      xmin = mean(map_data$long) - height/2 - height*margin
+      xmax = mean(map_data$long) + height/2 + height*margin
+      ymin = bbox$ymin - height * margin
+      ymax = bbox$ymax + height * margin
+    }
+
   }
   
   # create new bounding box and convert so it can be recognized by ggplot2
@@ -181,7 +191,7 @@ smallBox <- function(mapdata_name) {
   
   # Create a leaflet map with bounding box and points
   map <- leaflet() %>%
-    addTiles(urlTemplate = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png") %>%
+    addProviderTiles(providers$OpenTopoMap) %>%
     addPolygons(data = bbox_sfc, color = "black", fill = FALSE, weight = 10, opacity = 1) %>% 
     addCircleMarkers(data = points_sf, 
                      color = "black", 
@@ -204,7 +214,7 @@ smallBox(mapdata_name = "Box4Data")
 # create function to draw state map with boxes on it
 
 # ensure any overlays are properly saved
-mapviewOptions(fgb = FALSE) 
+mapviewOptions(basemaps = "OpenStreetMap", fgb = FALSE) 
 
 # Get US states and filter for Nevada
 us_states <- ne_states(country = "United States of America", returnclass = "sf")
@@ -217,11 +227,11 @@ bbox3 <- st_as_sfc(find_bbox(Box3Data))
 bbox4 <- st_as_sfc(find_bbox(Box4Data))
 
 # Map Nevada
-mapNevada <- mapview(nevada, color = "black", fill = FALSE, lwd = 5) +
-                mapview(bbox1, color = "black", fill = FALSE, alpha = 1, lwd = 3) +
-                mapview(bbox2, color = "black", fill = FALSE, alpha = 1, lwd = 3) +
-                mapview(bbox3, color = "black", fill = FALSE, alpha = 1, lwd = 3) +
-                mapview(bbox4, color = "black", fill = FALSE, alpha = 1, lwd = 3)
+mapNevada <- mapview(nevada, color = "black", fill = FALSE, lwd = 8) +
+                mapview(bbox1, color = "black", fill = FALSE, alpha = 1, lwd = 5) +
+                mapview(bbox2, color = "black", fill = FALSE, alpha = 1, lwd = 5) +
+                mapview(bbox3, color = "black", fill = FALSE, alpha = 1, lwd = 5) +
+                mapview(bbox4, color = "black", fill = FALSE, alpha = 1, lwd = 5)
 
 # Save as PNG with higher resolution
 mapshot(mapNevada, file = "FiguresResults/NevadaMap.png", vwidth = 2000, vheight = 1500)
