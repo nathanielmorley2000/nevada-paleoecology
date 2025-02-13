@@ -106,9 +106,6 @@ ggsave("FiguresResults/Fig1.png", plot = fig1, bg = "white")
 ############################## SITE PLACEMENT ##############################
 ############################################################################
 
-# ensure any overlays are properly saved
-mapviewOptions(fgb = FALSE) 
-
 # download data for boxes
 Box1Data <- read.csv("Data/BoxOneData.csv")
 Box2Data <- read.csv("Data/BoxTwoData.csv")
@@ -214,7 +211,8 @@ smallBox(mapdata_name = "Box4Data")
 # create function to draw state map with boxes on it
 
 # ensure any overlays are properly saved
-mapviewOptions(basemaps = "OpenStreetMap", fgb = FALSE) 
+mapviewOptions(basemaps = "OpenStreetMap",
+               fgb = FALSE) 
 
 # Get US states and filter for Nevada
 us_states <- ne_states(country = "United States of America", returnclass = "sf")
@@ -227,14 +225,24 @@ bbox3 <- st_as_sfc(find_bbox(Box3Data))
 bbox4 <- st_as_sfc(find_bbox(Box4Data))
 
 # Map Nevada
-mapNevada <- mapview(nevada, color = "black", fill = FALSE, lwd = 8) +
-                mapview(bbox1, color = "black", fill = FALSE, alpha = 1, lwd = 5) +
-                mapview(bbox2, color = "black", fill = FALSE, alpha = 1, lwd = 5) +
-                mapview(bbox3, color = "black", fill = FALSE, alpha = 1, lwd = 5) +
-                mapview(bbox4, color = "black", fill = FALSE, alpha = 1, lwd = 5)
+mapNevada <- mapview(nevada, color = "black", fill = FALSE, lwd = 20) +
+                mapview(bbox1, color = "black", fill = FALSE, alpha = 1, lwd = 15) +
+                mapview(bbox2, color = "black", fill = FALSE, alpha = 1, lwd = 15) +
+                mapview(bbox3, color = "black", fill = FALSE, alpha = 1, lwd = 15) +
+                mapview(bbox4, color = "black", fill = FALSE, alpha = 1, lwd = 15)
 
-# Save as PNG with higher resolution
-mapshot(mapNevada, file = "FiguresResults/NevadaMap.png", vwidth = 2000, vheight = 1500)
+mapNevadaZoom <- function(latitude) {
+  
+  # Extract the leaflet map and apply fitBounds
+  mapNevadaAdjusted <- mapNevada@map %>%
+    setView(lng = -115.5, lat = latitude, zoom = 9)  
+  
+  # Save as PNG with higher resolution
+  mapshot(mapNevadaAdjusted, file = paste0("FiguresResults/NevadaMap", latitude, ".png"), vwidth = 3740, vheight = 3740)
+}
+
+mapNevadaZoom(latitude = 39)
+mapNevadaZoom(latitude = 37)
 
 ############################################################################
 ############################################################################
