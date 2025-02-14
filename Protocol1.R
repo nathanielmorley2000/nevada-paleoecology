@@ -137,8 +137,8 @@ colnames(results_matrix) <- c("Proportion of Data Culled", "Success Rate")
 for (j in 1:n_rows) {
   results_matrix[j, 2] <- findNMDS(r = r_values[j], # proportion of data retained (loop through at 0.05 increments)
                                    nit = 5, # number of iterations
-                                   save = FALSE, # if you want to save individual plots and axis scores
-                                   plotIndices = 0) # number of plots produced (make sure save = TRUE)
+                                   save = TRUE, # if you want to save individual plots and axis scores
+                                   plotIndices = 5) # number of plots produced (make sure save = TRUE)
 }
 
 # make matrix dataframe
