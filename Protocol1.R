@@ -153,4 +153,5 @@ p <- ggplot(results_dataframe, aes(x = Proportion.of.Data.Culled, y = Success.Ra
         labs(x = "Proportion of Data Culled", y = "Success Rate") +
         theme_classic()
 
+# save line plot to Protocol1Results folder
 ggsave("Protocol1Results/SummaryPlot.png", p, width = 3543, height = 2657, units = "px")
