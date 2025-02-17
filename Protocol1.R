@@ -57,7 +57,8 @@ findNMDS <- function(r, nit, save, plotIndices) {
       
     # CHECK 2: Make sure NMDS didn't return a 1-D or mostly 1-D solution
     z_scores = (data.scores$NMDS1 - mean(data.scores$NMDS1)) / sd(data.scores$NMDS1)
-    outliers = abs(z_scores) > 4 # check for outliers outside 3 standard deviations
+    outliers = abs(z_scores) > 3 # check for outliers outside 3 standard deviations
+    outlierRatio = sum(outliers)/length(data.scores$Early.Mid)
       
     # make sure "Early" is on the left of the plot
     group_means <- aggregate(NMDS1 ~ Early.Mid, data = data.scores, mean)
@@ -104,9 +105,9 @@ findNMDS <- function(r, nit, save, plotIndices) {
     u_test = mann_whitney_test(NMDS1, Early.Mid, data.scores)
     
     # check that all 3 criteria are satisfied and mark as success
-    if (all(count_early >= 5 && count_mid >= 5, sum(outliers) < 1, u_test[2] < 0.05)) {
+    if (all(count_early >= 5 && count_mid >= 5, outlierRatio <= 0.01, u_test[2] < 0.05)) {
       success = success + 1
-    }
+    } 
     
     # proceed to next iteration
     i = i + 1
@@ -136,9 +137,9 @@ colnames(results_matrix) <- c("Proportion of Data Culled", "Success Rate")
 # loop to compute values and store in the second column
 for (j in 1:n_rows) {
   results_matrix[j, 2] <- findNMDS(r = r_values[j], # proportion of data retained (loop through at 0.05 increments)
-                                   nit = 5, # number of iterations
+                                   nit = 20, # number of iterations
                                    save = TRUE, # if you want to save individual plots and axis scores
-                                   plotIndices = 5) # number of plots produced (make sure save = TRUE)
+                                   plotIndices = 20) # number of plots produced (make sure save = TRUE)
 }
 
 # make matrix dataframe
