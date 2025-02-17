@@ -105,7 +105,7 @@ findNMDS <- function(r, nit, save, plotIndices) {
     u_test = mann_whitney_test(NMDS1, Early.Mid, data.scores)
     
     # check that all 3 criteria are satisfied and mark as success
-    if (all(count_early >= 5 && count_mid >= 5, outlierRatio <= 0.01, u_test[2] < 0.05)) {
+    if (all(count_early >= 5 && count_mid >= 5, outlierRatio <= 0.05, u_test[2] < 0.05)) {
       success = success + 1
     } 
     
@@ -137,9 +137,9 @@ colnames(results_matrix) <- c("Proportion of Data Culled", "Success Rate")
 # loop to compute values and store in the second column
 for (j in 1:n_rows) {
   results_matrix[j, 2] <- findNMDS(r = r_values[j], # proportion of data retained (loop through at 0.05 increments)
-                                   nit = 20, # number of iterations
+                                   nit = 1000, # number of iterations
                                    save = TRUE, # if you want to save individual plots and axis scores
-                                   plotIndices = 20) # number of plots produced (make sure save = TRUE)
+                                   plotIndices = 50) # number of plots produced (make sure save = TRUE)
 }
 
 # make matrix dataframe
