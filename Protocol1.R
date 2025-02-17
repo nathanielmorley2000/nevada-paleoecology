@@ -57,7 +57,7 @@ findNMDS <- function(r, nit, save, plotIndices) {
       
     # CHECK 2: Make sure NMDS didn't return a 1-D or mostly 1-D solution
     z_scores = (data.scores$NMDS1 - mean(data.scores$NMDS1)) / sd(data.scores$NMDS1)
-    outliers = abs(z_scores) > 3 # check for outliers outside 3 standard deviations
+    outliers = abs(z_scores) > 4 # check for outliers outside 3 standard deviations
       
     # make sure "Early" is on the left of the plot
     group_means <- aggregate(NMDS1 ~ Early.Mid, data = data.scores, mean)
@@ -104,7 +104,7 @@ findNMDS <- function(r, nit, save, plotIndices) {
     u_test = mann_whitney_test(NMDS1, Early.Mid, data.scores)
     
     # check that all 3 criteria are satisfied and mark as success
-    if (all(count_early >= 5 && count_mid >= 5, sum(outliers) != 1, u_test[2] < 0.05)) {
+    if (all(count_early >= 5 && count_mid >= 5, sum(outliers) < 1, u_test[2] < 0.05)) {
       success = success + 1
     }
     
