@@ -44,71 +44,76 @@ findNMDS <- function(r, nit, save, plotIndices) {
     count_early = sum(culled_data$Early.Mid == "Early")
     count_mid = sum(culled_data$Early.Mid == "Middle")
       
-    # make community matrix - extract columns with relative abundance information
-    com = culled_data[,4:ncol(culled_data)]
-    m_com = as.matrix(com)
     
-    # run NMDS
-    nmds = metaMDS(m_com, distance = "bray")
-    
-    # extract NMDS scores (x and y coordinates) and bind to Early/Mid
-    data.scores = as.data.frame(scores(nmds)$sites)
-    data.scores$Early.Mid = culled_data$Early.Mid
+    # make sure there are data in both samples
+    if (all(count_early > 0, count_mid > 0)){
       
-    # CHECK 2: Make sure NMDS didn't return a 1-D or mostly 1-D solution
-    z_scores = (data.scores$NMDS1 - mean(data.scores$NMDS1)) / sd(data.scores$NMDS1)
-    outliers = abs(z_scores) > 3 # check for outliers outside 3 standard deviations
-    outlierRatio = sum(outliers)/length(data.scores$Early.Mid)
+      # make community matrix - extract columns with relative abundance information
+      com = culled_data[,4:ncol(culled_data)]
+      m_com = as.matrix(com)
       
-    # make sure "Early" is on the left of the plot
-    group_means <- aggregate(NMDS1 ~ Early.Mid, data = data.scores, mean)
-    earlyMean <- group_means$NMDS1[group_means$Early.Mid == "Early"]
-    midMean <- group_means$NMDS1[group_means$Early.Mid == "Middle"]
-    
-    # flip the NMDS1 axis if "early" is not on left
-    if (earlyMean > midMean) {
-      data.scores$NMDS1 <- -data.scores$NMDS1 
+      # run NMDS
+      nmds = metaMDS(m_com, distance = "bray")
+      
+      # extract NMDS scores (x and y coordinates) and bind to Early/Mid
+      data.scores = as.data.frame(scores(nmds)$sites)
+      data.scores$Early.Mid = culled_data$Early.Mid
+      
+      # CHECK 2: Make sure NMDS didn't return a 1-D or mostly 1-D solution
+      z_scores = (data.scores$NMDS1 - mean(data.scores$NMDS1)) / sd(data.scores$NMDS1)
+      outliers = abs(z_scores) > 3 # check for outliers outside 3 standard deviations
+      outlierRatio = sum(outliers)/length(data.scores$Early.Mid)
+      
+      # make sure "Early" is on the left of the plot
+      group_means <- aggregate(NMDS1 ~ Early.Mid, data = data.scores, mean)
+      earlyMean <- group_means$NMDS1[group_means$Early.Mid == "Early"]
+      midMean <- group_means$NMDS1[group_means$Early.Mid == "Middle"]
+      
+      # flip the NMDS1 axis if "early" is not on left
+      if (earlyMean > midMean) {
+        data.scores$NMDS1 <- -data.scores$NMDS1 
+      }
+      
+      # create plot and save axes scores if i < plotIndices 
+      if (i <= plotIndices) {
+        
+        # create function to calculate the convex hull for each group
+        find_hull = function(df) df[chull(df$NMDS1, df$NMDS2), ]
+        
+        # apply the function to your NMDS scores grouped by your factor
+        hulls = data.scores %>%
+          group_by(Early.Mid) %>%
+          do(find_hull(.))
+        
+        # NMDS plot with convex hulls
+        p = ggplot() +
+          geom_polygon(data = hulls, aes(x = NMDS1, y = NMDS2, fill = Early.Mid), alpha = 0.2) + # Convex hulls
+          geom_point(data = data.scores, aes(x = NMDS1, y = NMDS2, color = Early.Mid), size = 4) + # Points
+          theme_minimal() +
+          labs(x = "NMDS1", y = "NMDS2") +
+          ggtitle(paste("Plot for iteration", i)) +
+          theme(plot.title = element_text(hjust = 0.5))
+        
+        # construct the filename
+        file_name = sprintf("NMDS.%d.png", i)
+        file_path = file.path(folder_name, file_name)
+        
+        # save the plot
+        ggsave(filename = file_path, plot = p, bg = "white")
+        
+        # save axis scores
+        write.csv(data.scores, paste0(folder_name, "/NMDSdata", i, ".csv"))
+      }
+      
+      # CHECK 3: Make sure the p-value of the u-test is significant (p < 0.05)
+      u_test = mann_whitney_test(NMDS1, Early.Mid, data.scores)
+      
+      # check that all 3 criteria are satisfied and mark as success
+      if (all(count_early >= 5 && count_mid >= 5, outlierRatio <= 0.05, u_test[2] < 0.05)) {
+        success = success + 1
+      } 
     }
-    
-    # create plot and save axes scores if i < plotIndices 
-    if (i <= plotIndices) {
-      
-      # create function to calculate the convex hull for each group
-      find_hull = function(df) df[chull(df$NMDS1, df$NMDS2), ]
-      
-      # apply the function to your NMDS scores grouped by your factor
-      hulls = data.scores %>%
-        group_by(Early.Mid) %>%
-        do(find_hull(.))
-      
-      # NMDS plot with convex hulls
-      p = ggplot() +
-        geom_polygon(data = hulls, aes(x = NMDS1, y = NMDS2, fill = Early.Mid), alpha = 0.2) + # Convex hulls
-        geom_point(data = data.scores, aes(x = NMDS1, y = NMDS2, color = Early.Mid), size = 4) + # Points
-        theme_minimal() +
-        labs(x = "NMDS1", y = "NMDS2") +
-        ggtitle(paste("Plot for iteration", i)) +
-        theme(plot.title = element_text(hjust = 0.5))
-      
-      # construct the filename
-      file_name = sprintf("NMDS.%d.png", i)
-      file_path = file.path(folder_name, file_name)
 
-      # save the plot
-      ggsave(filename = file_path, plot = p, bg = "white")
-      
-      # save axis scores
-      write.csv(data.scores, paste0(folder_name, "/NMDSdata", i, ".csv"))
-    }
-
-    # CHECK 3: Make sure the p-value of the u-test is significant (p < 0.05)
-    u_test = mann_whitney_test(NMDS1, Early.Mid, data.scores)
-    
-    # check that all 3 criteria are satisfied and mark as success
-    if (all(count_early >= 5 && count_mid >= 5, outlierRatio <= 0.05, u_test[2] < 0.05)) {
-      success = success + 1
-    } 
-    
     # proceed to next iteration
     i = i + 1
     }
