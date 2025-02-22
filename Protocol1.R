@@ -36,6 +36,9 @@ findNMDS <- function(r, nit, save, plotIndices) {
   i = 1
   for (i in 1:nit) {
     
+    # print iteration in console
+    print(paste0("Survival Rate: ", r, " Iteration: ", i))
+    
     # randomly cull data
     culled_data = data %>%
       slice_sample(prop = r)
