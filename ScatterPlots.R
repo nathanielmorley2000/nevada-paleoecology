@@ -4,16 +4,17 @@ library("rsdepth")
 library("ggplot2")
 
 
-# download data
+# download data and make necessary adjustments
 fig4Data <- read.csv("Data/Fig4Data.csv") %>%
-  select(Age, X, Y) %>%
-  mutate(Age = recode(Age, Early = "Early Devonian", Middle = "Middle Devonian"))
+  select(Age, X, Y) %>% # pare down excess columns
+  mutate(Age = recode(Age, Early = "Early Devonian", Middle = "Middle Devonian")) # rename variables to be more human-readable
 fig5AData <- read.csv("Data/Fig5AData.csv")
 fig5BData <- read.csv("Data/Fig5BData.csv")
 fig6AData <- read.csv("Data/Fig6AData.csv") %>%
-  rename(Age = Faunal.Interval)
+  rename(Age = Faunal.Interval) # rename column to streamline code further down
 fig6BData <- read.csv("Data/Fig6BData.csv") %>%
-  rename(Age = Faunal.Interval)
+  rename(Age = Faunal.Interval) %>% # rename column to streamline code further down
+  mutate(X = X*-1) # invert x-axis so this figure is consistent with the rest
 
 
 # create function to generate line plots for figs 5A and 5B
@@ -36,7 +37,7 @@ fig5B
 
 
 # create function to generate ordination plots for figs 4, 6A, 6B 
-plotNMDS <- function(data, convexHulls) {
+plotNMDS <- function(data, convexHulls, legendTitle, colors, shapes) {
   
   if(convexHulls == TRUE) {
     # create function to calculate the convex hull for each group
@@ -62,23 +63,29 @@ plotNMDS <- function(data, convexHulls) {
       centroids <- rbind(centroids, data.frame(Age = g, X = centroid[1], Y = centroid[2]))
     }
     
-    
     # generate plot with convex hulls and centroid
     ggplot() +
       geom_polygon(data = hulls, aes(x = X, y = Y, fill = Age), alpha = 0.2) +
-      geom_point(data=data, aes(x=X, y=Y, color=Age, shape=Age), size = 3) +
+      scale_fill_manual(name = legendTitle, values = colors) +
+      geom_point(data=data, aes(x=X, y=Y, color=Age, shape=Age), size = 2) +
+      scale_shape_manual(name = legendTitle, values = shapes) +
+      scale_color_manual(name = legendTitle, values = colors) +
       #geom_point(data = centroids, aes(x = X, y = Y),  color = "blue", shape=3, size = 4) +
       xlab("NMDS 1") +
       ylab("NMDS 2") +
+      labs(fill = legendTitle, color = legendTitle, shapes = legendTitle) +
       theme_classic() +
       theme(panel.border = element_rect(linetype = "solid", fill = NA))
     
   } else {
     # generate scatterplot
     ggplot() +
-      geom_point(data=data, aes(x=X, y=Y, color=Age, shape=Age), size = 3) +
+      geom_point(data=data, aes(x=X, y=Y, color=Age, shape=Age), size = 2) +
+      scale_shape_manual(name = legendTitle, values = shapes) +
+      scale_color_manual(name = legendTitle, values = colors) +
       xlab("NMDS 1") +
       ylab("NMDS 2") +
+      labs(fill = legendTitle) +
       theme_classic() +
       theme(panel.border = element_rect(linetype = "solid", fill = NA))
   }
@@ -86,13 +93,19 @@ plotNMDS <- function(data, convexHulls) {
 }
 
 # generate ordination plot for Fig. 4
-fig4 <- plotNMDS(data=fig4Data, convexHulls=FALSE)
+fig4 <- plotNMDS(data=fig4Data, convexHulls=FALSE, legendTitle = "Age", 
+                 colors = c("red", "blue"),
+                 shapes = c(16, 17))
 fig4
 
 # generate ordination plot for Fig. 6A
-fig6A <- plotNMDS(data=fig6AData, convexHulls=TRUE)
+fig6A <- plotNMDS(data=fig6AData, convexHulls=TRUE, legendTitle = "Faunal Interval",
+                  colors = c("darkgreen", "red", "darkgreen", "red", "deepskyblue", "deepskyblue", "deepskyblue", "deepskyblue", "deepskyblue"),
+                  shapes = c(15, 16, 15, 16, 17, 17, 17, 17, 17))
 fig6A
 
 # generate ordination plot for Fig. 6B
-fig6B <- plotNMDS(data=fig6BData, convexHulls=TRUE)
+fig6B <- plotNMDS(data=fig6BData, convexHulls=TRUE, legendTitle = "Faunal Interval",
+                  colors = c("red", "red", "blue", "blue", "blue", "blue", "blue"),
+                  shapes = c(15, 15, 17, 17, 17, 17, 17 ))
 fig6B
