@@ -94,13 +94,13 @@ plotNMDS <- function(data, convexHulls, legendTitle, colors, shapes) {
 
 # generate ordination plot for Fig. 4
 fig4 <- plotNMDS(data=fig4Data, convexHulls=FALSE, legendTitle = "Age", 
-                 colors = c("red", "blue"),
-                 shapes = c(16, 17))
+                 colors = c("red", "blue"), # link to colour picker: https://derekogle.com/NCGraphing/resources/colors
+                 shapes = c(16, 17)) # link to shape picker: https://ggplot2.tidyverse.org/reference/scale_shape.html
 fig4
 
 # generate ordination plot for Fig. 6A
 fig6A <- plotNMDS(data=fig6AData, convexHulls=TRUE, legendTitle = "Faunal Interval",
-                  colors = c("darkgreen", "red", "darkgreen", "red", "deepskyblue", "deepskyblue", "deepskyblue", "deepskyblue", "deepskyblue"),
+                  colors = c("gray", "black", "gray", "black", "gray35", "gray35", "gray35", "gray35", "gray35"),
                   shapes = c(15, 16, 15, 16, 17, 17, 17, 17, 17))
 fig6A
 
