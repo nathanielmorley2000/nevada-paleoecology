@@ -4,10 +4,10 @@ library("vegan")
 library("ggplot2")
 
 # create directory to store protocol 1 results
-dir.create("Protocol1Results")
+dir.create("Baxter et al. - Results 3.2/Protocol1Results")
 
 # load data and replace NAs with 0s
-rawData <- read.csv("Data/RelativeDataset.csv")
+rawData <- read.csv("Baxter et al. - Results 3.2/RelativeDataset.csv")
 data <- rawData %>% replace(is.na(.), 0) # ensure NA values are replaced with 0
 
 # create function for running u-test on NMDS axis 1 scores and returning the U-statistic and p-value
@@ -133,6 +133,10 @@ findNMDS <- function(r, nit, save, plotIndices) {
   }
 }
 
+###########################################
+############### Protocol 1A ###############
+###########################################
+
 # define sequence and find number of rows
 r_values <- seq(0.05, 1.00, by = 0.05)
 n_rows <- length(r_values)
@@ -146,15 +150,18 @@ colnames(results_matrix) <- c("Proportion of Data Culled", "Success Rate")
 for (j in 1:n_rows) {
   results_matrix[j, 2] <- findNMDS(r = r_values[j], # proportion of data retained (loop through at 0.05 increments)
                                    nit = 1000, # number of iterations
-                                   save = TRUE, # if you want to save individual plots and axis scores
-                                   plotIndices = 50) # number of plots produced (make sure save = TRUE)
+                                   save = FALSE, # if you want to save individual plots and axis scores
+                                   plotIndices = 0) # number of plots produced (make sure save = TRUE)
 }
 
 # make matrix dataframe
 results_dataframe <- data.frame(results_matrix)
 
+# create directory to store 1a results
+dir.create("Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (a)")
+
 # save matrix to Protocol1Results folder
-write.csv(results_dataframe, "Protocol1Results/Summary.csv", row.names = FALSE)
+write.csv(results_dataframe, "Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (a)/Summary.csv", row.names = FALSE)
 
 # create a line plot
 p <- ggplot(results_dataframe, aes(x = Proportion.of.Data.Culled, y = Success.Rate)) +
@@ -163,4 +170,51 @@ p <- ggplot(results_dataframe, aes(x = Proportion.of.Data.Culled, y = Success.Ra
         theme_classic()
 
 # save line plot to Protocol1Results folder
-ggsave("Protocol1Results/SummaryPlot.png", p, width = 3543, height = 2657, units = "px")
+ggsave("Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (a)/SummaryPlot.png", p, width = 3543, height = 2657, units = "px")
+
+###########################################
+###########################################
+###########################################
+
+###########################################
+############### Protocol 1B ###############
+###########################################
+
+# define sequence and find number of rows
+r_values <- seq(0.02, 0.1, by = 0.005)
+n_rows <- length(r_values)
+
+# initialize matrix
+results_matrix <- matrix(NA, nrow = n_rows, ncol = 2)
+results_matrix[, 1] <- 1 - r_values
+colnames(results_matrix) <- c("Proportion of Data Culled", "Success Rate")
+
+# loop to compute values and store in the second column
+for (j in 1:n_rows) {
+  results_matrix[j, 2] <- findNMDS(r = r_values[j], # proportion of data retained (loop through at 0.05 increments)
+                                   nit = 10000, # number of iterations
+                                   save = FALSE, # if you want to save individual plots and axis scores
+                                   plotIndices = 0) # number of plots produced (make sure save = TRUE)
+}
+
+# make matrix dataframe
+results_dataframe <- data.frame(results_matrix)
+
+# create directory to store 1b results
+dir.create("Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (b)")
+
+# save matrix to Protocol1Results folder
+write.csv(results_dataframe, "Protocol1Results/Summary.csv", row.names = FALSE)
+
+# create a line plot
+p <- ggplot(results_dataframe, aes(x = Proportion.of.Data.Culled, y = Success.Rate)) +
+  geom_line(color = "black", size = 1) +
+  labs(x = "Proportion of Data Culled", y = "Success Rate") +
+  theme_classic()
+
+# save line plot to Protocol1Results folder
+ggsave("Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (b)/SummaryPlot.png", p, width = 3543, height = 2657, units = "px")
+
+###########################################
+###########################################
+###########################################
