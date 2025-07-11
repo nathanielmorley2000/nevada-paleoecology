@@ -1,0 +1,255 @@
+
+
+********************* Nonmetric Multidimensional Scaling *********************
+PC-ORD, 7.11                
+ 9 Jul 2025, 14:39:05
+
+ Project file: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.1\Baxter et al. - Project File.7prj
+  Main matrix: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.3\Bin 6 (b)\Baxter et al. - Bin 6 - Coal Canyon - Main Matrix.mjm
+
+
+Baxter et al. - Bin 6 - Coal Canyon - Results                                   
+Ordination of Samples in Genera space.         20 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          6 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.     RANDOM = Starting coordinates (random or from file)
+         5.          1 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.        250 = Number of runs with real data
+        10.        250 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.         NO = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.         NO = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+       562 = Seed for random number generator.
+
+            19 = Number of tie blocks in dissimilarity matrix.
+            70 = Number of elements involved in ties.
+           190 = Total number of elements in dissimilarity matrix.
+        36.842 = Percentage of elements involved in ties.
+
+
+
+STRESS IN RELATION TO DIMENSIONALITY (Number of Axes)
+-------------------------------------------------------------------------------------
+          Stress in real data          Stress in randomized data
+              250 run(s)               Monte Carlo test,  250 runs
+      -------------------------  ----------------------------------------------------
+Axes  Minimum     Mean  Maximum  Minimum     Mean  Maximum      p         n      C
+-------------------------------------------------------------------------------------
+   1   33.783   46.513   54.696   29.971   48.477   54.777    0.0199      4    0.0405
+   2   13.290   15.833   35.027   16.207   23.144   36.543    0.0040      0    0.3159
+   3    8.600    9.176   25.926    9.544   13.677   25.756    0.0040      0    0.3291
+   4    5.598    5.902   18.558    6.188    8.929   14.821    0.0040      0    0.3390
+   5    3.065    3.181    4.948    4.226    6.191    8.405    0.0040      0    0.4862
+   6    2.351    2.450    2.870    3.026    4.351    6.157    0.0040      0    0.4368
+-------------------------------------------------------------------------------------
+p = proportion of randomized runs with stress < or = observed stress
+i.e., p  = (1 + n)/(1 + N)
+      n = no. permutations <= observed
+      N = no. permutations
+      C = Cohesion = 1 - SmeanObserved/SmeanRand)
+
+
+Conclusion:  a 2-dimensional solution is recommended.
+Now rerunning the best ordination with that dimensionality.
+
+Selected file CONFIG2.GPH  for the starting configuration for
+   the final run.
+
+
+Baxter et al. - Bin 6 - Coal Canyon - Results                                   
+Ordination of Samples in Genera space.         20 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          2 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.  FROM FILE = Starting coordinates (random or from file)
+         5.          2 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.          1 = Number of runs with real data
+        10.          0 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.        YES = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.        YES = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+
+File containing starting coordinates:
+CONFIG2.GPH                                                                                                                                                                                                                                     
+
+      13.28976 = final stress for 2-dimensional solution
+       0.00000 = final instability
+            44 = number of iterations
+
+MEASURES OF FIT
+R²n  (nonmetric fit) =   0.9823  Intrinsic measure for NMS. Null: all points co-located.
+R²l  (linear fit)    =   0.8920  Null: all ordination distances equal.
+R²m  (metric fit)    =   0.7460  Null: no linear relationship with observed dissimilarities.
+
+CHANCE-CORRECTED EVALUATIONS
+Improvement:       I =   0.6783
+Null model: final configuration no better than initial random configuration.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of random initial configurations used
+                 41.3053 = average initial stress
+                 13.2898 = final stress
+
+Association:       A =   0.4258
+Null model: relationships among columns no stronger than expected chance, based on shuffling within columns.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of randomizations used
+                 13.2898 = minimum final stress from real runs
+                 23.1441 = average final stress from randomizations
+
+Cohesion:          C =   0.3159
+C = 1 - SmeanObserved/SmeanRand
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of randomizations used
+                 15.8333 = average final stress from real runs
+                 23.1441 = average final stress from randomizations
+
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2
+       1 CCN3 144        -1.1054    -0.7943
+       2 CCN3 157        -1.0744    -0.6488
+       3 CCN3 175        -0.5223     0.3513
+       4 CCN3 184        -0.5935    -0.8358
+       5 CCN3 198        -0.8075    -0.8494
+       6 CCN3 23         -0.5298     1.1389
+       7 CCN3 38         -0.6465     1.0295
+       8 CCN1 105        -0.2977     0.7128
+       9 CCN1 109         0.2843     0.0224
+      10 CCN1 157         0.3869     0.5675
+      11 CCN1 167         0.9174     0.8246
+      12 CCN1 176         0.6136     0.3446
+      13 CCN1 223         0.8268     0.4256
+      14 CCN1 251         1.0860    -0.1941
+      15 CCN1 257         0.1143    -0.5619
+      16 CCN1 270         0.5835    -0.5941
+      17 CCN1 300         1.2093    -0.5615
+      18 CCN1 72          0.5962    -1.1525
+      19 CCN1 81         -0.2846     0.4561
+      20 CCN1 95         -0.7567     0.3193
+
+
+
+      PLOT OF STRESS V. ITERATION NUMBER
+       47.0294533..............................................
+                 .                                            .
+                 .                                            .
+                 .*                                           .
+                 .                                            .
+                 .                                            .
+                 . *                                          .
+                 .  *                                         .
+                 .   **                                       .
+                 .     **                                     .
+                 .       ***                                  .
+                 .          **                                .
+                 .            *                               .
+                 .             *                              .
+                 .                                            .
+      STRESS     .                                            .
+                 .              * *                           .
+                 .                                            .
+                 .               *                            .
+                 .                      *                     .
+                 .                 *     *                    .
+                 .                  ****  ********************.
+                 .                                            .
+                 .                                            .
+                 .                                            .
+                 .                                            .
+                 .                                            .
+                 .                                            .
+                 .                                            .
+                 .                                            .
+                 .                                            .
+        0.0000000..............................................
+                           10        20        30        40
+                      ITERATION NUMBER
+
+
+
+
+
+Principal axes rotation of 2-dimensional solution.
+
+Configuration after rotation is listed below.
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2
+       1 CCN3 144        -1.2548    -0.5276
+       2 CCN3 157        -1.1921    -0.3927
+       3 CCN3 175        -0.4307     0.4590
+       4 CCN3 184        -0.7651    -0.6823
+       5 CCN3 198        -0.9768    -0.6478
+       6 CCN3 23         -0.2622     1.2284
+       7 CCN3 38         -0.4004     1.1478
+       8 CCN1 105        -0.1311     0.7613
+       9 CCN1 109         0.2821    -0.0417
+      10 CCN1 157         0.5038     0.4668
+      11 CCN1 167         1.0783     0.5990
+      12 CCN1 176         0.6751     0.1990
+      13 CCN1 223         0.9009     0.2303
+      14 CCN1 251         1.0153    -0.4316
+      15 CCN1 257        -0.0140    -0.5733
+      16 CCN1 270         0.4362    -0.7094
+      17 CCN1 300         1.0535    -0.8172
+      18 CCN1 72          0.3239    -1.2565
+      19 CCN1 81         -0.1757     0.5081
+      20 CCN1 95         -0.6664     0.4802
+
+Writing weighted average scores on 2 axes for     164 Genera      
+   into file for graphing.
+
+Empty columns found.
+Cannot calculate column scores.
+
+******************** NMS ordination completed ********************
+ 9 Jul 2025, 14:41:17
+        2.19 minutes elapsed time.

@@ -1,0 +1,547 @@
+
+
+********************* Nonmetric Multidimensional Scaling *********************
+PC-ORD, 7.11                
+ 8 Jul 2025, 12:36:32
+
+ Project file: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.1\Baxter et al. - Project File.7prj
+  Main matrix: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.3\Bin 3 (a)\Baxter et al. - Bin 3 - All Regions - Main Matrix.mjm
+
+
+Baxter et al. - Bin 3 - All Regions - Results                                   
+Ordination of Samples in Genera space.        147 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          6 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.     RANDOM = Starting coordinates (random or from file)
+         5.          1 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.        250 = Number of runs with real data
+        10.        250 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.         NO = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.         NO = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+      3204 = Seed for random number generator.
+
+           673 = Number of tie blocks in dissimilarity matrix.
+          5616 = Number of elements involved in ties.
+         10731 = Total number of elements in dissimilarity matrix.
+        52.334 = Percentage of elements involved in ties.
+
+
+
+STRESS IN RELATION TO DIMENSIONALITY (Number of Axes)
+-------------------------------------------------------------------------------------
+          Stress in real data          Stress in randomized data
+              250 run(s)               Monte Carlo test,  250 runs
+      -------------------------  ----------------------------------------------------
+Axes  Minimum     Mean  Maximum  Minimum     Mean  Maximum      p         n      C
+-------------------------------------------------------------------------------------
+   1   37.138   40.406   43.160    8.240   49.715   55.485    0.0279      6    0.1872
+   2   22.669   24.421   26.439    8.235   32.743   34.744    0.0080      1    0.2542
+   3   16.051   16.536   17.879    8.229   24.289   25.767    0.0080      1    0.3192
+   4   12.232   12.460   13.752    8.222   19.283   26.523    0.0080      1    0.3538
+   5   10.005   10.116   11.004    8.217   15.883   23.177    0.0080      1    0.3631
+   6    8.551    8.697    8.917    8.207   13.566   20.659    0.0080      1    0.3589
+-------------------------------------------------------------------------------------
+p = proportion of randomized runs with stress < or = observed stress
+i.e., p  = (1 + n)/(1 + N)
+      n = no. permutations <= observed
+      N = no. permutations
+      C = Cohesion = 1 - SmeanObserved/SmeanRand)
+
+
+Conclusion:  a 3-dimensional solution is recommended.
+Now rerunning the best ordination with that dimensionality.
+
+Selected file CONFIG3.GPH  for the starting configuration for
+   the final run.
+
+
+Baxter et al. - Bin 3 - All Regions - Results                                   
+Ordination of Samples in Genera space.        147 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          3 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.  FROM FILE = Starting coordinates (random or from file)
+         5.          3 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.          1 = Number of runs with real data
+        10.          0 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.        YES = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.        YES = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+
+File containing starting coordinates:
+CONFIG3.GPH                                                                                                                                                                                                                                     
+
+      16.05095 = final stress for 3-dimensional solution
+       0.00000 = final instability
+           114 = number of iterations
+
+MEASURES OF FIT
+R²n  (nonmetric fit) =   0.9742  Intrinsic measure for NMS. Null: all points co-located.
+R²l  (linear fit)    =   0.8235  Null: all ordination distances equal.
+R²m  (metric fit)    =   0.6115  Null: no linear relationship with observed dissimilarities.
+
+CHANCE-CORRECTED EVALUATIONS
+Improvement:       I =   0.5368
+Null model: final configuration no better than initial random configuration.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   3 dimensions
+                     250 = number of random initial configurations used
+                 34.6544 = average initial stress
+                 16.0509 = final stress
+
+Association:       A =   0.3392
+Null model: relationships among columns no stronger than expected chance, based on shuffling within columns.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   3 dimensions
+                     250 = number of randomizations used
+                 16.0509 = minimum final stress from real runs
+                 24.2895 = average final stress from randomizations
+
+Cohesion:          C =   0.3192
+C = 1 - SmeanObserved/SmeanRand
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   3 dimensions
+                     250 = number of randomizations used
+                 16.5364 = average final stress from real runs
+                 24.2895 = average final stress from randomizations
+
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2          3
+       1 DCMIII 32       -1.0481    -0.3806     0.2156
+       2 DCMIII 39       -0.5769    -0.0639    -1.0828
+       3 DCMIII 40       -1.0502    -0.1514    -0.4770
+       4 H64 3           -0.7767    -0.1096    -0.7662
+       5 J43 1           -1.0649    -0.1877     0.3671
+       6 LMFF 1022        0.1326    -0.3933     0.0211
+       7 LMFF 1027        0.5434    -0.3095     0.3301
+       8 LMFF 1047        0.9867    -0.4074    -0.4772
+       9 LMFF 1152        0.4829    -0.6106    -0.3507
+      10 LMFF 1182        0.1768    -0.1709     0.6872
+      11 LMFF 1197        0.2876    -0.0516     0.7538
+      12 LMFF 1302        0.2483    -0.3190     0.8702
+      13 LMFF 1314        0.2950    -0.1127     0.8389
+      14 LMFF 1357 (U     0.2860    -0.8202     0.0090
+      15 RH 1A 19        -1.0494     0.0663     0.7434
+      16 RHII 18          0.9702    -0.0658    -0.6381
+      17 RHII 22          0.9077    -0.1251    -0.7012
+      18 RM 90-2          0.5775    -0.4696    -0.4898
+      19 TAII 1400        0.5542     0.1774     0.4697
+      20 TAII 1480        0.4338    -0.1872    -0.5763
+      21 TAII 1575        0.4992     0.3923    -0.4746
+      22 TAII 980         0.1213    -0.6823     0.8049
+      23 TAIII 335       -0.2326    -0.5902    -0.6493
+      24 TAIII 369       -0.1290    -0.4237    -0.5617
+      25 TAIII 43         0.3932     0.3072     0.3344
+      26 TAIII 65         0.3827     0.1687    -0.0719
+      27 TAIII 8, 12     -0.1536    -0.2215    -0.7430
+      28 TAV 1035         0.9913     0.8274    -0.3597
+      29 TAV 106          1.7406     0.2967     0.2868
+      30 TAV 110          0.7752    -0.1670    -0.1153
+      31 TAV 1235         0.4899     0.6298     0.3564
+      32 TAV 1240         0.3759     0.8531    -0.0397
+      33 TAV 1243         0.4284     0.8147    -0.0482
+      34 TAV 1245        -0.1020     0.4879    -0.4459
+      35 TAv 1257        -0.6846    -0.1941    -0.0707
+      36 TAV 1320        -0.3523    -0.2171    -0.6555
+      37 TAV 1340        -0.3503    -0.2444    -0.4882
+      38 TAV 1380        -0.3404    -0.6567    -0.2712
+      39 TAV 139          0.6173    -0.1957     0.0954
+      40 TAV 1425        -0.2278    -0.5995    -0.5492
+      41 TAV 1450        -0.3545    -0.2911    -1.0236
+      42 TAV 153          0.3914    -0.1028    -0.0364
+      43 TAV 164          0.1209    -0.2620     0.5478
+      44 TAV 431          0.0745    -0.2294     0.7989
+      45 TAV 440          0.0330    -0.5908     0.9698
+      46 TAV 485          0.4191    -0.6616     0.6155
+      47 TAV 720          0.5474     0.1529     0.8471
+      48 TAV 95           0.8966    -0.1051     0.1807
+      49 TAV G1          -0.4892    -0.4390    -1.1532
+      50 TAV G2          -0.3227    -0.4325    -1.0205
+      51 TAV G3          -0.3327    -0.4519    -1.0756
+      52 TAV G4          -0.2187    -0.9754    -0.7246
+      53 TAV SD 5        -0.3499    -0.5312    -1.0210
+      54 TAV SD 6        -0.5502    -0.4634    -1.1231
+      55 TAV SD 7        -0.2391    -0.6906    -1.1788
+      56 TAVI 10          0.2958     0.2832     0.8609
+      57 TAVI 153        -0.4857    -0.3859    -0.2344
+      58 TAVI 160        -0.5586    -0.4292    -0.4409
+      59 TAVI 28          0.4152     0.1404    -0.3065
+      60 TAVII 10         0.2663     0.2572     0.4930
+      61 TAVII 182        1.0714     0.2739    -0.2059
+      62 TAVII 190        0.5004     0.3647     0.2231
+      63 TAVII 235        0.2501     0.3880     0.0165
+      64 TAVII 265        0.7960     0.5876    -0.7742
+      65 TAVII 5          0.0774     0.1658     0.3432
+      66 TAVIII A        -0.6110    -0.5253    -0.7314
+      67 TAVIII B        -0.2856    -0.2698    -0.7832
+      68 TAVIII B1       -0.6222    -0.3063    -0.7995
+      69 TAVIII C         0.1298     0.6297    -0.3321
+      70 TAVIII C3        0.1950     0.5099     0.4350
+      71 TAVIII D        -0.1313     0.4929    -0.6067
+      72 TAVIII D1       -0.6914    -0.2658    -0.3136
+      73 TAX 13           0.2845     0.8250    -0.4339
+      74 TAX 130         -0.3564    -0.3200    -0.5579
+      75 TAX 14           0.0771     0.7825    -0.3871
+      76 TAX 16          -0.6291    -0.1032    -0.3635
+      77 TAX 17          -0.9154    -0.1947    -0.5808
+      78 TAX 19          -0.8409    -0.2866    -0.2090
+      79 TAX 27          -0.6442    -0.2388     0.0446
+      80 TAX 30          -0.7777    -0.2277    -0.0303
+      81 TAX 34          -1.0455    -0.2552    -0.4090
+      82 UCLA 3493        0.1161     1.4195     0.0327
+      83 UCLA 3496       -0.1367     0.3093     0.8679
+      84 UCLA 3497        0.3966     0.9166     0.3314
+      85 UCR 3473         0.0546     0.5464     0.1628
+      86 UCR 3478        -0.4021     0.3272    -0.7630
+      87 UCR 3479        -0.7998     0.7437    -0.2781
+      88 UCR 3481        -0.6597     0.8212    -0.8742
+      89 UCR 3482        -0.2211     1.2016     0.3089
+      90 UCR 4456        -0.0404     0.4541     0.8146
+      91 USNM 10798       0.2705    -0.4012     0.5643
+      92 USNM 10804       0.2481    -0.2860     0.6607
+      93 USNM 10807      -0.0181    -0.3941     0.1990
+      94 USNM 12534       0.0123     0.0837     0.0901
+      95 USNM 13638       0.4071    -0.7807     0.1799
+      96 USNM 13649       0.3809     0.9774     0.2577
+      97 USNM 17213       0.2602     0.3435     0.8021
+      98 USNM 17239       0.0589    -1.0704     0.8928
+      99 USNM 17249       0.2123    -0.9131     0.6514
+     100 USNM 17256      -0.0088    -0.1226     0.7789
+     101 USNM 17262       0.1594    -0.4461     0.6891
+     102 USNM 17270       0.4053    -0.7144     0.8728
+     103 USNM 17413      -1.2531     1.2527    -0.2107
+     104 USNM 17431       0.4522    -0.3561     0.7974
+     105 USNM 17439       0.4755    -0.0836     0.5681
+     106 USNM 17440       0.2825    -0.6392     0.7870
+     107 USNM 17442       0.2373    -0.7551     0.6478
+     108 USNM 17456       0.0233     0.4746     0.7100
+     109 USNM 17458       0.3053    -0.1615     0.6328
+     110 USNM 17473       0.1959    -0.1139     0.0258
+     111 USNM 17475       0.3722     0.4214    -1.1413
+     112 USNM 17479      -0.0053     0.6243     0.5807
+     113 USNM 17480      -0.6535     0.5049    -1.0840
+     114 USNM 17484       1.1411    -0.8479    -0.0002
+     115 USNM 17641      -0.6807     0.3043    -1.2374
+     116 USNM 17642      -0.4381     0.2160    -1.2003
+     117 USNM 17643      -0.3957     0.2335    -1.2483
+     118 USNM 17644      -0.5158     0.3441    -1.2134
+     119 USNM 17702       0.5163    -0.6045     0.7945
+     120 USNM 17705      -0.4287     0.0629     1.0062
+     121 USNM 17707       1.1446    -0.3793    -0.4406
+     122 USNM 17209       2.0645    -0.7319    -0.0059
+     123 USNM 17710       0.2269     0.1306    -0.0529
+     124 USNM 17717       0.4661    -0.2108     0.8091
+     125 USNM 17727      -0.1817     0.2250     0.4003
+     126 USNM 17728       0.0852     1.0380    -0.0831
+     127 USNM 17731       0.3539    -0.1169     0.7235
+     128 USNM 17740       0.1281    -0.0524    -0.0882
+     129 WCII 1040 (U     0.3647     0.2803     0.8391
+     130 WCII 1050 (U     0.5938     0.0087     0.4080
+     131 WCII 1062 (U     0.4098     0.0002    -0.1465
+     132 WCII 1064 (U     0.7910    -0.0240     0.3137
+     133 WCII 1200        0.1974     0.7442     0.4182
+     134 WCII 1201        0.0883     0.7066     0.3070
+     135 WCII 1207        0.1835     1.1516     0.2595
+     136 WCII 1210       -0.0631     0.8651     0.3252
+     137 WCII 1229       -0.8671     1.2003     0.8000
+     138 WCII 1230       -0.7542     1.0638     0.7534
+     139 WCII 1293       -1.1776     0.0508     0.5687
+     140 WCII 1295       -0.8901    -0.1226     0.4525
+     141 WCII 1305       -0.5084    -0.1093     0.4776
+     142 WCII 1311       -1.2884    -0.2414     0.3087
+     143 WCII 1313       -1.1220    -0.3307     0.3130
+     144 WCII 1330       -1.0539    -0.2508     0.0485
+     145 WCII 929 (US    -0.0068    -0.1899    -0.1164
+     146 WCII 980 (US     0.4369    -0.0313     0.2288
+     147 Y3 fI           -0.8967    -0.2772     0.1224
+
+
+
+      PLOT OF STRESS V. ITERATION NUMBER
+      (to prevent wrapping of wide plots when printing, use small font)
+
+       38.7464828......................................................................................................
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .*                                                                                                   .
+                 .                                                                                                    .
+                 . *                                                                                                  .
+                 .  **                                                                                                .
+                 .    *******                                                                                         .
+                 .           **                                                                                       .
+                 .             *                                                                                      .
+                 .              *                                                                                     .
+                 .               **                                                                                   .
+                 .                 *                                                                                  .
+                 .                  ***                                                                               .
+                 .                     *****                                                                          .
+      STRESS     .                          ********                                                                  .
+                 .                                  ***********************                                           .
+                 .                                                         *******************************************.
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+                 .                                                                                                    .
+        0.0000000......................................................................................................
+                           10        20        30        40        50        60        70        80        90       100
+                      ITERATION NUMBER
+
+
+       38.7464828................
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+      STRESS     .              .
+                 .              .
+                 .**************.
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+                 .              .
+        0.0000000................
+                          110
+                      ITERATION NUMBER
+
+
+
+
+
+Principal axes rotation of 3-dimensional solution.
+
+Configuration after rotation is listed below.
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2          3
+       1 DCMIII 32       -0.5331     0.7214     0.6967
+       2 DCMIII 39       -1.1973    -0.2653    -0.0737
+       3 DCMIII 40       -1.0518     0.3966     0.2995
+       4 H64 3           -1.0902     0.0471     0.1082
+       5 J43 1           -0.4247     0.8976     0.5638
+       6 LMFF 1022        0.0927    -0.2314     0.3326
+       7 LMFF 1027        0.5973    -0.3040     0.2256
+       8 LMFF 1047        0.2753    -1.1363    -0.0223
+       9 LMFF 1152        0.0358    -0.7836     0.3373
+      10 LMFF 1182        0.6305     0.2208     0.2939
+      11 LMFF 1197        0.7564     0.2282     0.1713
+      12 LMFF 1302        0.8118     0.2231     0.4603
+      13 LMFF 1314        0.8240     0.2504     0.2486
+      14 LMFF 1357 (U     0.1733    -0.5102     0.6815
+      15 RH 1A 19        -0.1239     1.2089     0.4260
+      16 RHII 18          0.1516    -1.0900    -0.3765
+      17 RHII 22          0.0615    -1.1063    -0.3215
+      18 RM 90-2         -0.0038    -0.8794     0.1439
+      19 TAII 1400        0.7222    -0.0417    -0.1896
+      20 TAII 1480       -0.1560    -0.7217    -0.1009
+      21 TAII 1575       -0.0216    -0.4851    -0.6266
+      22 TAII 980         0.6701     0.1345     0.8130
+      23 TAIII 335       -0.6577    -0.4502     0.4344
+      24 TAIII 369       -0.5196    -0.4071     0.2758
+      25 TAIII 43         0.5179     0.0405    -0.3017
+      26 TAIII 65         0.2006    -0.2480    -0.2800
+      27 TAIII 8, 12     -0.6674    -0.4207     0.0471
+      28 TAV 1035         0.3984    -0.5964    -1.1324
+      29 TAV 106          1.3639    -0.9410    -0.6739
+      30 TAV 110          0.4162    -0.6789    -0.0892
+      31 TAV 1235         0.6060     0.1091    -0.6202
+      32 TAV 1240         0.2378     0.0382    -0.9014
+      33 TAV 1243         0.2647    -0.0186    -0.8827
+      34 TAV 1245        -0.3912    -0.0079    -0.5424
+      35 TAv 1257        -0.5066     0.3656     0.3479
+      36 TAV 1320        -0.7313    -0.2267     0.1209
+      37 TAV 1340        -0.6044    -0.1387     0.1906
+      38 TAV 1380        -0.4444    -0.1738     0.6269
+      39 TAV 139          0.4713    -0.4527     0.0372
+      40 TAV 1425        -0.5792    -0.3973     0.4685
+      41 TAV 1450        -1.0127    -0.4736     0.0910
+      42 TAV 153          0.2262    -0.3368    -0.0221
+      43 TAV 164          0.4863     0.1420     0.3559
+      44 TAV 431          0.6464     0.3372     0.4060
+      45 TAV 440          0.7391     0.3302     0.7970
+      46 TAV 485          0.7226    -0.1806     0.6614
+      47 TAV 720          1.0022     0.1793    -0.0637
+      48 TAV 95           0.7209    -0.5638    -0.1002
+      49 TAV G1          -1.2026    -0.5128     0.2297
+      50 TAV G2          -0.9931    -0.5483     0.2138
+      51 TAV G3          -1.0418    -0.5816     0.2195
+      52 TAV G4          -0.7153    -0.6525     0.7660
+      53 TAV SD 5        -1.0139    -0.5672     0.3122
+      54 TAV SD 6        -1.2205    -0.4612     0.2770
+      55 TAV SD 7        -1.0645    -0.8006     0.3867
+      56 TAVI 10          0.8512     0.4147    -0.1113
+      57 TAVI 153        -0.5049     0.0542     0.4265
+      58 TAVI 160        -0.7097    -0.0344     0.4310
+      59 TAVI 28          0.0439    -0.4218    -0.3258
+      60 TAVII 10         0.5534     0.2056    -0.1780
+      61 TAVII 182        0.5530    -0.7729    -0.6019
+      62 TAVII 190        0.5054    -0.0795    -0.4140
+      63 TAVII 235        0.1861    -0.0177    -0.4224
+      64 TAVII 265       -0.0487    -0.7984    -0.9687
+      65 TAVII 5          0.3141     0.2141    -0.0821
+      66 TAVIII A        -0.9659    -0.2079     0.4561
+      67 TAVIII B        -0.7855    -0.3703     0.1171
+      68 TAVIII B1       -1.0191    -0.1569     0.2386
+      69 TAVIII C        -0.1499    -0.0488    -0.7062
+      70 TAVIII C3        0.4692     0.3179    -0.4075
+      71 TAVIII D        -0.5317    -0.0814    -0.5821
+      72 TAVIII D1       -0.6964     0.1978     0.3507
+      73 TAX 13          -0.1205    -0.1438    -0.9563
+      74 TAX 130         -0.6629    -0.2050     0.2433
+      75 TAX 14          -0.2221     0.0139    -0.8476
+      76 TAX 16          -0.6891     0.1863     0.1700
+      77 TAX 17          -1.0431     0.2231     0.2746
+      78 TAX 19          -0.7157     0.3577     0.4390
+      79 TAX 27          -0.3942     0.3890     0.4091
+      80 TAX 30          -0.5379     0.4425     0.4152
+      81 TAX 34          -1.0001     0.3942     0.4123
+      82 UCLA 3493        0.1367     0.4813    -1.3339
+      83 UCLA 3496        0.5740     0.7335    -0.0151
+      84 UCLA 3497        0.5333     0.2697    -0.8661
+      85 UCR 3473         0.1726     0.2680    -0.4758
+      86 UCR 3478        -0.8313    -0.0475    -0.3969
+      87 UCR 3479        -0.7149     0.6819    -0.5422
+      88 UCR 3481        -1.0715     0.2565    -0.8123
+      89 UCR 3482         0.1190     0.8005    -0.9661
+      90 UCR 4456         0.6004     0.6892    -0.1894
+      91 USNM 10798       0.5931    -0.0068     0.4479
+      92 USNM 10804       0.6543     0.1106     0.3736
+      93 USNM 10807       0.1285    -0.0192     0.4224
+      94 USNM 12534       0.0782     0.0772    -0.0565
+      95 USNM 13638       0.3827    -0.4782     0.6577
+      96 USNM 13649       0.4689     0.2600    -0.9377
+      97 USNM 17213       0.7849     0.4277    -0.1731
+      98 USNM 17239       0.6858     0.0823     1.2121
+      99 USNM 17249       0.6079    -0.1098     0.9600
+     100 USNM 17256       0.5795     0.4248     0.3248
+     101 USNM 17262       0.6136     0.1288     0.5534
+     102 USNM 17270       0.9065    -0.0374     0.7831
+     103 USNM 17413      -0.9479     1.2364    -0.8700
+     104 USNM 17431       0.8894     0.0217     0.4191
+     105 USNM 17439       0.7383    -0.0274     0.0995
+     106 USNM 17440       0.7632     0.0267     0.7242
+     107 USNM 17442       0.6255    -0.0690     0.8063
+     108 USNM 17456       0.5636     0.5897    -0.2539
+     109 USNM 17458       0.6738     0.1013     0.2354
+     110 USNM 17473       0.1449    -0.1661     0.0584
+     111 USNM 17475      -0.6077    -0.7830    -0.7977
+     112 USNM 17479       0.4510     0.5899    -0.4190
+     113 USNM 17480      -1.2339     0.0057    -0.5784
+     114 USNM 17484       0.7255    -1.1285     0.4702
+     115 USNM 17641      -1.3726    -0.1436    -0.4268
+     116 USNM 17642      -1.1881    -0.3262    -0.4018
+     117 USNM 17643      -1.1961    -0.3780    -0.4425
+     118 USNM 17644      -1.2456    -0.2302    -0.5023
+     119 USNM 17702       0.9229    -0.1203     0.6301
+     120 USNM 17705       0.4809     0.9274     0.3297
+     121 USNM 17707       0.4070    -1.2148    -0.0818
+     122 USNM 17209       1.3288    -1.7379     0.1085
+     123 USNM 17710       0.1120    -0.1415    -0.1970
+     124 USNM 17717       0.9110     0.0746     0.2842
+     125 USNM 17727       0.1891     0.4534    -0.0505
+     126 USNM 17728       0.0194     0.2878    -1.0042
+     127 USNM 17731       0.7753     0.1384     0.2053
+     128 USNM 17740       0.0159    -0.1629    -0.0104
+     129 WCII 1040 (U     0.8797     0.3520    -0.1334
+     130 WCII 1050 (U     0.6972    -0.1711    -0.0612
+     131 WCII 1062 (U     0.1577    -0.3762    -0.1518
+     132 WCII 1064 (U     0.7543    -0.3789    -0.1104
+     133 WCII 1200        0.4640     0.3959    -0.6291
+     134 WCII 1201        0.3077     0.3919    -0.5943
+     135 WCII 1207        0.3454     0.4668    -1.0440
+     136 WCII 1210        0.2263     0.5701    -0.6942
+     137 WCII 1229        0.0670     1.5485    -0.6558
+     138 WCII 1230        0.1023     1.3889    -0.5733
+     139 WCII 1293       -0.3402     1.1888     0.4286
+     140 WCII 1295       -0.2442     0.8505     0.4787
+     141 WCII 1305        0.0251     0.6018     0.3686
+     142 WCII 1311       -0.6165     0.9996     0.6590
+     143 WCII 1313       -0.5066     0.8507     0.6970
+     144 WCII 1330       -0.6598     0.6753     0.5335
+     145 WCII 929 (US    -0.0972    -0.1375     0.1460
+     146 WCII 980 (US     0.4581    -0.1830    -0.0294
+     147 Y3 fI           -0.5017     0.5986     0.5346
+
+Writing weighted average scores on 3 axes for     164 Genera      
+   into file for graphing.
+
+Empty columns found.
+Cannot calculate column scores.
+
+******************** NMS ordination completed ********************
+ 8 Jul 2025, 12:44:10
+        7.63 minutes elapsed time.

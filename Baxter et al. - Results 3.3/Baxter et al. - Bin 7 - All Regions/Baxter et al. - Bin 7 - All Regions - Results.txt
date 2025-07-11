@@ -1,0 +1,313 @@
+
+
+********************* Nonmetric Multidimensional Scaling *********************
+PC-ORD, 7.11                
+ 9 Jul 2025, 15:11:55
+
+ Project file: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.1\Baxter et al. - Project File.7prj
+  Main matrix: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.3\Bin 7 (a)\Baxter et al. - Bin 7 - All Regions - Main Matrix.mjm
+
+
+Baxter et al. - Bin 7 - All Regions - Results                                   
+Ordination of Samples in Genera space.         49 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          6 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.     RANDOM = Starting coordinates (random or from file)
+         5.          1 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.        250 = Number of runs with real data
+        10.        250 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.         NO = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.         NO = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+      5502 = Seed for random number generator.
+
+            44 = Number of tie blocks in dissimilarity matrix.
+           233 = Number of elements involved in ties.
+          1176 = Total number of elements in dissimilarity matrix.
+        19.813 = Percentage of elements involved in ties.
+
+
+
+STRESS IN RELATION TO DIMENSIONALITY (Number of Axes)
+-------------------------------------------------------------------------------------
+          Stress in real data          Stress in randomized data
+              250 run(s)               Monte Carlo test,  250 runs
+      -------------------------  ----------------------------------------------------
+Axes  Minimum     Mean  Maximum  Minimum     Mean  Maximum      p         n      C
+-------------------------------------------------------------------------------------
+   1   29.078   35.599   56.488   34.630   47.443   56.542    0.0040      0    0.2497
+   2   17.372   18.438   21.434   22.556   26.848   40.220    0.0040      0    0.3132
+   3   12.516   12.956   14.631   16.527   18.358   20.128    0.0040      0    0.2942
+   4    9.378    9.763   10.743   12.489   13.970   15.645    0.0040      0    0.3011
+   5    7.226    7.426    8.303    9.813   11.104   21.701    0.0040      0    0.3312
+   6    5.734    5.922    6.584    7.929    9.026   10.196    0.0040      0    0.3439
+-------------------------------------------------------------------------------------
+p = proportion of randomized runs with stress < or = observed stress
+i.e., p  = (1 + n)/(1 + N)
+      n = no. permutations <= observed
+      N = no. permutations
+      C = Cohesion = 1 - SmeanObserved/SmeanRand)
+
+
+Conclusion:  a 2-dimensional solution is recommended.
+Now rerunning the best ordination with that dimensionality.
+
+Selected file CONFIG2.GPH  for the starting configuration for
+   the final run.
+
+
+Baxter et al. - Bin 7 - All Regions - Results                                   
+Ordination of Samples in Genera space.         49 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          2 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.  FROM FILE = Starting coordinates (random or from file)
+         5.          2 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.          1 = Number of runs with real data
+        10.          0 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.        YES = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.        YES = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+
+File containing starting coordinates:
+CONFIG2.GPH                                                                                                                                                                                                                                     
+
+      17.37186 = final stress for 2-dimensional solution
+       0.00000 = final instability
+            51 = number of iterations
+
+MEASURES OF FIT
+R²n  (nonmetric fit) =   0.9698  Intrinsic measure for NMS. Null: all points co-located.
+R²l  (linear fit)    =   0.8801  Null: all ordination distances equal.
+R²m  (metric fit)    =   0.6837  Null: no linear relationship with observed dissimilarities.
+
+CHANCE-CORRECTED EVALUATIONS
+Improvement:       I =   0.5889
+Null model: final configuration no better than initial random configuration.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of random initial configurations used
+                 42.2594 = average initial stress
+                 17.3719 = final stress
+
+Association:       A =   0.3529
+Null model: relationships among columns no stronger than expected chance, based on shuffling within columns.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of randomizations used
+                 17.3719 = minimum final stress from real runs
+                 26.8478 = average final stress from randomizations
+
+Cohesion:          C =   0.3132
+C = 1 - SmeanObserved/SmeanRand
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of randomizations used
+                 18.4385 = average final stress from real runs
+                 26.8478 = average final stress from randomizations
+
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2
+       1 LMFF 1022       -0.0107    -0.2058
+       2 LMFF 1027        0.1289    -0.0944
+       3 LMFF 1047       -0.0404    -1.4150
+       4 LMFF 1152       -0.5352    -0.9600
+       5 LMFF 1182        0.1532     0.4765
+       6 LMFF 1197        0.3513     0.5490
+       7 LMFF 1302       -0.2373     0.7085
+       8 LMFF 1314        0.3082     0.6975
+       9 LMFF 1357 (U    -0.7270    -0.2334
+      10 RHII 18          0.8184    -1.1719
+      11 RHII 22          0.9304    -1.1696
+      12 RM 90-2          0.1056    -1.0732
+      13 TAII 1400        0.6507     0.0281
+      14 TAII 1480        0.8011    -0.8026
+      15 TAII 980        -0.5343     0.8444
+      16 TAV 106          1.6105    -0.6833
+      17 TAV 110          0.3539    -0.7665
+      18 TAV 139          0.0566    -0.4215
+      19 TAV 153          0.5795    -0.3146
+      20 TAV 164         -0.1674     0.2068
+      21 TAV 431          0.0531     0.6727
+      22 TAV 440          0.0232     1.1061
+      23 TAV 485         -0.5731     0.5772
+      24 TAV 720          0.8143     0.4101
+      25 TAV 95           0.3273    -0.5445
+      26 TAVII 10         0.5338     0.7507
+      27 TAVII 5          0.6600     0.1206
+      28 USNM 10798      -0.1303     0.3885
+      29 USNM 10804       0.0669     0.4285
+      30 USNM 10807      -0.2697     0.2102
+      31 USNM 17213       0.8044     0.5477
+      32 USNM 17239      -0.8932     0.9364
+      33 USNM 17249      -0.6594     0.6223
+      34 USNM 17256       0.5174     0.2888
+      35 USNM 17262      -0.3157     0.4670
+      36 USNM 17270      -0.6237     0.8170
+      37 USNM 17431      -0.1635     0.7008
+      38 USNM 17439       0.3860     0.1996
+      39 USNM 17440      -0.5141     0.7573
+      40 USNM 17442      -0.5727     0.6582
+      41 USNM 17458       0.1359     0.3919
+      42 USNM 17475      -1.8576    -0.8543
+      43 USNM 17484      -0.6070    -1.1624
+      44 USNM 17702      -0.4273     0.7584
+      45 USNM 17705      -0.9197    -0.7445
+      46 USNM 17707      -0.0685    -1.4777
+      47 USNM 17209      -0.6869    -2.4755
+      48 USNM 17717       0.1003     0.7039
+      49 USNM 17731       0.2636     0.5462
+
+
+
+      PLOT OF STRESS V. ITERATION NUMBER
+       46.4514694.....................................................
+                 .                                                   .
+                 .                                                   .
+                 .*                                                  .
+                 .                                                   .
+                 . *                                                 .
+                 .  **                                               .
+                 .    *                                              .
+                 .     **                                            .
+                 .       *                                           .
+                 .        *                                          .
+                 .         *                                         .
+                 .          *                                        .
+                 .           *                                       .
+                 .            *                                      .
+      STRESS     .             **                                    .
+                 .               **                                  .
+                 .                 **                                .
+                 .                   *************                   .
+                 .                                *******************.
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+                 .                                                   .
+        0.0000000.....................................................
+                           10        20        30        40        50
+                      ITERATION NUMBER
+
+
+
+
+
+Principal axes rotation of 2-dimensional solution.
+
+Configuration after rotation is listed below.
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2
+       1 LMFF 1022       -0.2046    -0.0247
+       2 LMFF 1027       -0.1030     0.1221
+       3 LMFF 1047       -1.4089    -0.1368
+       4 LMFF 1152       -0.9212    -0.5995
+       5 LMFF 1182        0.4649     0.1854
+       6 LMFF 1197        0.5237     0.3880
+       7 LMFF 1302        0.7230    -0.1885
+       8 LMFF 1314        0.6748     0.3550
+       9 LMFF 1357 (U    -0.1833    -0.7413
+      10 RHII 18         -1.2250     0.7365
+      11 RHII 22         -1.2304     0.8485
+      12 RM 90-2         -1.0779     0.0321
+      13 TAII 1400       -0.0164     0.6511
+      14 TAII 1480       -0.8554     0.7445
+      15 TAII 980         0.8788    -0.4754
+      16 TAV 106         -0.7916     1.5601
+      17 TAV 110         -0.7889     0.3008
+      18 TAV 139         -0.4243     0.0278
+      19 TAV 153         -0.3534     0.5567
+      20 TAV 164          0.2178    -0.1529
+      21 TAV 431          0.6675     0.0989
+      22 TAV 440          1.1019     0.0986
+      23 TAV 485          0.6149    -0.5324
+      24 TAV 720          0.3536     0.8404
+      25 TAV 95          -0.5656     0.2894
+      26 TAVII 10         0.7125     0.5837
+      27 TAVII 5          0.0753     0.6667
+      28 USNM 10798       0.3964    -0.1035
+      29 USNM 10804       0.4229     0.0960
+      30 USNM 10807       0.2281    -0.2548
+      31 USNM 17213       0.4916     0.8399
+      32 USNM 17239       0.9951    -0.8273
+      33 USNM 17249       0.6659    -0.6154
+      34 USNM 17256       0.2528     0.5358
+      35 USNM 17262       0.4874    -0.2831
+      36 USNM 17270       0.8577    -0.5666
+      37 USNM 17431       0.7103    -0.1153
+      38 USNM 17439       0.1728     0.3987
+      39 USNM 17440       0.7906    -0.4612
+      40 USNM 17442       0.6958    -0.5265
+      41 USNM 17458       0.3817     0.1624
+      42 USNM 17475      -0.7257    -1.9115
+      43 USNM 17484      -1.1183    -0.6849
+      44 USNM 17702       0.7858    -0.3745
+      45 USNM 17705      -0.6800    -0.9683
+      46 USNM 17707      -1.4696    -0.1691
+      47 USNM 17209      -2.4229    -0.8541
+      48 USNM 17717       0.6954     0.1481
+      49 USNM 17731       0.5270     0.3003
+
+Writing weighted average scores on 2 axes for     164 Genera      
+   into file for graphing.
+
+Empty columns found.
+Cannot calculate column scores.
+
+******************** NMS ordination completed ********************
+ 9 Jul 2025, 15:15:02
+        3.13 minutes elapsed time.

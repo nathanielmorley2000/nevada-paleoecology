@@ -1,0 +1,343 @@
+
+
+********************* Nonmetric Multidimensional Scaling *********************
+PC-ORD, 7.11                
+ 9 Jul 2025, 13:47:23
+
+ Project file: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.1\Baxter et al. - Project File.7prj
+  Main matrix: D:\TEMPORAL SCALING PROJECT\PCORD Project File - 3.3\Bin 3 (b)\Baxter et al. - Bin 3 - Northern Antelope Range - Main Matrix.mjm
+
+
+Baxter et al. - Bin 3 - Nothern Antelope Range - Results                        
+Ordination of Samples in Genera space.         63 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          6 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.     RANDOM = Starting coordinates (random or from file)
+         5.          1 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.        250 = Number of runs with real data
+        10.        250 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.         NO = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.         NO = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+      2313 = Seed for random number generator.
+
+           128 = Number of tie blocks in dissimilarity matrix.
+           598 = Number of elements involved in ties.
+          1953 = Total number of elements in dissimilarity matrix.
+        30.620 = Percentage of elements involved in ties.
+
+
+
+STRESS IN RELATION TO DIMENSIONALITY (Number of Axes)
+-------------------------------------------------------------------------------------
+          Stress in real data          Stress in randomized data
+              250 run(s)               Monte Carlo test,  250 runs
+      -------------------------  ----------------------------------------------------
+Axes  Minimum     Mean  Maximum  Minimum     Mean  Maximum      p         n      C
+-------------------------------------------------------------------------------------
+   1   27.613   38.800   55.153   45.404   54.195   56.750    0.0040      0    0.2841
+   2   16.077   17.199   20.580   28.834   31.345   40.364    0.0040      0    0.4513
+   3   11.510   11.806   13.178   19.894   21.971   31.317    0.0040      0    0.4627
+   4    8.752    9.073   10.043   15.202   16.768   25.750    0.0040      0    0.4589
+   5    7.094    7.296    7.887   11.964   13.317   22.099    0.0040      0    0.4521
+   6    5.921    6.102    6.649    9.932   10.878   19.595    0.0040      0    0.4390
+-------------------------------------------------------------------------------------
+p = proportion of randomized runs with stress < or = observed stress
+i.e., p  = (1 + n)/(1 + N)
+      n = no. permutations <= observed
+      N = no. permutations
+      C = Cohesion = 1 - SmeanObserved/SmeanRand)
+
+
+Conclusion:  a 2-dimensional solution is recommended.
+Now rerunning the best ordination with that dimensionality.
+
+Selected file CONFIG2.GPH  for the starting configuration for
+   the final run.
+
+
+Baxter et al. - Bin 3 - Nothern Antelope Range - Results                        
+Ordination of Samples in Genera space.         63 Samples           164 Genera      
+
+         The following options were selected:
+ANALYSIS OPTIONS
+         1. REL.SOREN. = Distance measure
+         2.          2 = Number of axes (max. = 6)
+         3.        500 = Maximum number of iterations
+         4.  FROM FILE = Starting coordinates (random or from file)
+         5.          2 = Reduction in dimensionality at each cycle
+         6. NO PENALTY = Tie handling (Strategy 1 does not penalize
+                         ties with unequal ordination distance,
+                         while strategy 2 does penalize.)
+         7.       0.20 = Step length (rate of movement toward minimum stress)
+         8.   USE TIME = Random number seeds (use time vs. user-supplied)
+         9.          1 = Number of runs with real data
+        10.          0 = Number of runs with randomized data
+        11.        YES = Autopilot
+        12.   0.000000 = Stability criterion, standard deviations in stress
+                         over last  10 iterations.
+        13.   THOROUGH = Speed vs. thoroughness
+OUTPUT OPTIONS
+        14.         NO = Write distance matrix?
+        15.         NO = Write starting coordinates?
+        16.         NO = List stress, etc. for each iteration?
+        17.        YES = Plot stress vs. iteration?
+        18.         NO = Plot distance vs. dissimilarity?
+        19.        YES = Write final configuration?
+        20. PRINC.AXES = Write varimax-rotated, principal axes, or unrotated scores for graph?
+        21.         NO = Write run log?
+        22.        YES = Write weighted-average scores for Genera?
+------------------------------------------------------------------------------
+
+
+File containing starting coordinates:
+CONFIG2.GPH                                                                                                                                                                                                                                     
+
+      16.07714 = final stress for 2-dimensional solution
+       0.00000 = final instability
+            61 = number of iterations
+
+MEASURES OF FIT
+R²n  (nonmetric fit) =   0.9742  Intrinsic measure for NMS. Null: all points co-located.
+R²l  (linear fit)    =   0.8829  Null: all ordination distances equal.
+R²m  (metric fit)    =   0.6550  Null: no linear relationship with observed dissimilarities.
+
+CHANCE-CORRECTED EVALUATIONS
+Improvement:       I =   0.6198
+Null model: final configuration no better than initial random configuration.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of random initial configurations used
+                 42.2821 = average initial stress
+                 16.0771 = final stress
+
+Association:       A =   0.4871
+Null model: relationships among columns no stronger than expected chance, based on shuffling within columns.
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of randomizations used
+                 16.0771 = minimum final stress from real runs
+                 31.3447 = average final stress from randomizations
+
+Cohesion:          C =   0.4513
+C = 1 - SmeanObserved/SmeanRand
+Interpretation: 0 = random expectation, 1 = perfect fit, <0 = worse than random expectation
+Basis:                   2 dimensions
+                     250 = number of randomizations used
+                 17.1988 = average final stress from real runs
+                 31.3447 = average final stress from randomizations
+
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2
+       1 TAII 1400        0.9730    -0.3255
+       2 TAII 1480        0.2702     0.2763
+       3 TAII 1575       -0.1320    -0.6582
+       4 TAII 980         1.1612     0.6943
+       5 TAIII 335       -0.4530     0.7771
+       6 TAIII 369       -0.2778     0.4966
+       7 TAIII 43         0.6100    -0.4837
+       8 TAIII 65         0.3972    -0.3361
+       9 TAIII 8, 12     -0.5022     0.4460
+      10 TAV 1035        -0.1257    -1.6507
+      11 TAV 106          1.8342    -1.3228
+      12 TAV 110          0.9240    -0.2479
+      13 TAV 1235         0.7454    -0.7928
+      14 TAV 1240         0.3242    -1.0134
+      15 TAV 1243         0.3783    -1.0134
+      16 TAV 1245        -0.2890    -0.2492
+      17 TAv 1257        -0.5890    -0.0453
+      18 TAV 1320        -0.6155     0.4118
+      19 TAV 1340        -0.3453     0.4618
+      20 TAV 1380        -0.2462     0.6784
+      21 TAV 139          0.7065    -0.1389
+      22 TAV 1425        -0.2963     0.7328
+      23 TAV 1450        -0.8311     0.6777
+      24 TAV 153          0.5231    -0.0401
+      25 TAV 164          0.9208     0.2247
+      26 TAV 431          1.1204     0.2819
+      27 TAV 440          1.2509     0.6286
+      28 TAV 485          0.9921     0.5417
+      29 TAV 720          1.3490    -0.2029
+      30 TAV 95           1.1967    -0.2321
+      31 TAV G1          -0.9250     0.8179
+      32 TAV G2          -0.8647     0.7277
+      33 TAV G3          -0.8599     0.7993
+      34 TAV G4          -0.5050     1.2228
+      35 TAV SD 5        -0.8310     0.8754
+      36 TAV SD 6        -0.8958     0.8825
+      37 TAV SD 7        -0.7370     0.9741
+      38 TAVI 10          1.2483    -0.5446
+      39 TAVI 153        -0.4918     0.3009
+      40 TAVI 160        -0.6964     0.4793
+      41 TAVI 28          0.1571    -0.3027
+      42 TAVII 10         0.8620     0.0556
+      43 TAVII 182        0.5953    -1.3025
+      44 TAVII 190        0.6275    -0.6863
+      45 TAVII 235        0.3391    -0.5037
+      46 TAVII 265       -0.5239    -1.3458
+      47 TAVII 5          0.6663    -0.2510
+      48 TAVIII A        -0.8780     0.5083
+      49 TAVIII B        -0.5862     0.6150
+      50 TAVIII B1       -0.8892     0.4477
+      51 TAVIII C        -0.0242    -0.5648
+      52 TAVIII C3        0.7427    -0.6513
+      53 TAVIII D        -0.4630    -0.3195
+      54 TAVIII D1       -0.7828     0.0992
+      55 TAX 13           0.0418    -0.9580
+      56 TAX 130         -0.4894     0.5042
+      57 TAX 14          -0.1301    -0.7578
+      58 TAX 16          -0.6050     0.0790
+      59 TAX 17          -1.0722     0.2123
+      60 TAX 19          -0.9132    -0.0128
+      61 TAX 27          -0.1941     0.0282
+      62 TAX 30          -0.6980    -0.1902
+      63 TAX 34          -1.1986     0.1851
+
+
+
+      PLOT OF STRESS V. ITERATION NUMBER
+      (to prevent wrapping of wide plots when printing, use small font)
+
+       47.3572311...............................................................
+                 .                                                             .
+                 .                                                             .
+                 .*                                                            .
+                 .                                                             .
+                 . ******                                                      .
+                 .       *********                                             .
+                 .                ***                                          .
+                 .                   *                                         .
+                 .                    *                                        .
+                 .                                                             .
+                 .                     *                                       .
+                 .                                                             .
+                 .                                                             .
+                 .                      *                                      .
+      STRESS     .                       **                                    .
+                 .                                                             .
+                 .                         **                                  .
+                 .                           ****                              .
+                 .                               *********                     .
+                 .                                        *********************.
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+                 .                                                             .
+        0.0000000...............................................................
+                           10        20        30        40        50        60
+                      ITERATION NUMBER
+
+
+
+
+
+Principal axes rotation of 2-dimensional solution.
+
+Configuration after rotation is listed below.
+
+Final configuration (ordination scores) for this run
+    Samples               Axis
+  Number Name                  1          2
+       1 TAII 1400        0.9805     0.3020
+       2 TAII 1480        0.0587     0.3820
+       3 TAII 1575        0.2760    -0.6120
+       4 TAII 980         0.5396     1.2407
+       5 TAIII 335       -0.8208     0.3679
+       6 TAIII 369       -0.5150     0.2420
+       7 TAIII 43         0.7776    -0.0379
+       8 TAIII 65         0.5186    -0.0419
+       9 TAIII 8, 12     -0.6680     0.0701
+      10 TAV 1035         0.8592    -1.4150
+      11 TAV 106          2.2614    -0.0071
+      12 TAV 110          0.8955     0.3366
+      13 TAV 1235         1.0677    -0.2104
+      14 TAV 1240         0.8537    -0.6351
+      15 TAV 1243         0.8977    -0.6035
+      16 TAV 1245        -0.0898    -0.3709
+      17 TAv 1257        -0.4524    -0.3798
+      18 TAV 1320        -0.7402    -0.0237
+      19 TAV 1340        -0.5497     0.1743
+      20 TAV 1380        -0.5952     0.4081
+      21 TAV 139          0.6552     0.2985
+      22 TAV 1425        -0.6677     0.4231
+      23 TAV 1450        -1.0703     0.0669
+      24 TAV 153          0.4486     0.2720
+      25 TAV 164          0.6177     0.7189
+      26 TAV 431          0.7467     0.8816
+      27 TAV 440          0.6508     1.2395
+      28 TAV 485          0.4910     1.0181
+      29 TAV 720          1.2148     0.6207
+      30 TAV 95           1.1080     0.5083
+      31 TAV G1          -1.2282     0.1262
+      32 TAV G2          -1.1267     0.0880
+      33 TAV G3          -1.1645     0.1489
+      34 TAV G4          -1.1226     0.7000
+      35 TAV SD 5        -1.1853     0.2277
+      36 TAV SD 6        -1.2422     0.1957
+      37 TAV SD 7        -1.1664     0.3627
+      38 TAVI 10          1.3319     0.2842
+      39 TAVI 153        -0.5750    -0.0418
+      40 TAVI 160        -0.8452    -0.0159
+      41 TAVI 28          0.3040    -0.1545
+      42 TAVII 10         0.6684     0.5472
+      43 TAVII 182        1.2425    -0.7121
+      44 TAVII 190        0.9098    -0.1925
+      45 TAVII 235        0.5691    -0.2120
+      46 TAVII 265        0.3579    -1.3991
+      47 TAVII 5          0.6879     0.1840
+      48 TAVIII A        -1.0097    -0.0981
+      49 TAVIII B        -0.8347     0.1585
+      50 TAVIII B1       -0.9836    -0.1539
+      51 TAVIII C         0.3093    -0.4733
+      52 TAVIII C3        0.9831    -0.0969
+      53 TAVIII D        -0.1903    -0.5294
+      54 TAVIII D1       -0.6941    -0.3753
+      55 TAX 13           0.5919    -0.7545
+      56 TAX 130         -0.6915     0.1249
+      57 TAX 14           0.3355    -0.6918
+      58 TAX 16          -0.5378    -0.2881
+      59 TAX 17          -0.9952    -0.4518
+      60 TAX 19          -0.7349    -0.5423
+      61 TAX 27          -0.1742    -0.0901
+      62 TAX 30          -0.4566    -0.5611
+      63 TAX 34          -1.0821    -0.5476
+
+Writing weighted average scores on 2 axes for     164 Genera      
+   into file for graphing.
+
+Empty columns found.
+Cannot calculate column scores.
+
+******************** NMS ordination completed ********************
+ 9 Jul 2025, 13:51:56
+        4.56 minutes elapsed time.
