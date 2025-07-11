@@ -28,7 +28,7 @@ findNMDS <- function(r, nit, save, plotIndices) {
   if (save == TRUE){
     
     # overhead for creating individual results subdirectory
-    folder_name <- paste("Protocol1Results/IndividualResults", 1-r)
+    folder_name <- paste("Baxter et al. - Results 3.2/Protocol1Results/IndividualResults", 1-r)
     dir.create(folder_name)
   }
   
@@ -204,7 +204,7 @@ results_dataframe <- data.frame(results_matrix)
 dir.create("Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (b)")
 
 # save matrix to Protocol1Results folder
-write.csv(results_dataframe, "Protocol1Results/Summary.csv", row.names = FALSE)
+write.csv(results_dataframe, "Baxter et al. - Results 3.2/Protocol1Results/Baxter et al. - Protocol 1 (b)/Summary.csv", row.names = FALSE)
 
 # create a line plot
 p <- ggplot(results_dataframe, aes(x = Proportion.of.Data.Culled, y = Success.Rate)) +
