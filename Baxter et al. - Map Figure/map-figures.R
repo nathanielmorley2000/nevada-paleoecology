@@ -1,15 +1,9 @@
 # Load required packages
-library(maps)
-library(mapdata)
-library(ggplot2)
-library(sf)
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(rnaturalearthhires)
-library(leaflet)
-library(webshot2)
-library(dplyr)
-library(mapview)
+library("sf")
+library("rnaturalearth")
+library("leaflet")
+library("dplyr")
+library("mapview")
 
 
 # create subdirectory to store figure outputs
